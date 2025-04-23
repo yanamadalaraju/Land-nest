@@ -200,7 +200,7 @@ function App() {
         <Box
           sx={{
             width: { xs: '17%', sm: '60px' },
-            height: { xs: '90vh', sm: '90vh' },
+            height: { xs: '88vh', sm: '88vh' },
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',

@@ -137,6 +137,7 @@
   position: relative;
   backdrop-filter: blur(8px);
   height: 60px; /* Reduced height */
+  margin-bottom: 10px;
 }
 
 .cbn-nav-item {
