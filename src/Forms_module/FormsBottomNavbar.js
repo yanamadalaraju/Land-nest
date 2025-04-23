@@ -213,7 +213,7 @@ const navItems = [
 
 const centerItem = { key: 'post', icon: <AddCircleIcon />, route: '/post', label: '', isCenter: true };
 
-const FormsBottomNavbar = () => {
+const CustomBottomNavbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const navRef = useRef(null);
@@ -223,8 +223,8 @@ const FormsBottomNavbar = () => {
     : navItems.find((item) => location.pathname.startsWith(item.route))?.key || 'home';
 
   useEffect(() => {
-    const current = document.querySelector(`.nav-item[data-key="${currentKey}"]`);
-    const indicator = document.querySelector('.nav-indicator');
+    const current = document.querySelector(`.cbn-nav-item[data-key="${currentKey}"]`);
+    const indicator = document.querySelector('.cbn-indicator');
     if (current && indicator) {
       const { offsetLeft, offsetWidth } = current;
       indicator.style.left = `${offsetLeft + offsetWidth / 2 - 20}px`;
@@ -236,37 +236,37 @@ const FormsBottomNavbar = () => {
   };
 
   return (
-    <div className="nav-wrapper">
-      <div className="nav-bar" ref={navRef}>
+    <div className="cbn-wrapper">
+      <div className="cbn-bar" ref={navRef}>
         {navItems.map((item) =>
           item.isSpacer ? (
-            <div key="spacer" className="nav-spacer" />
+            <div key="spacer" className="cbn-spacer" />
           ) : (
             <div
               key={item.key}
               data-key={item.key}
-              className={`nav-item ${currentKey === item.key ? 'active' : ''}`}
+              className={`cbn-nav-item ${currentKey === item.key ? 'cbn-active' : ''}`}
               onClick={() => handleNav(item)}
             >
               {item.icon}
-              <div className="nav-label">{item.label}</div>
+              <div className="cbn-label">{item.label}</div>
             </div>
           )
         )}
 
         <div
-          className={`nav-item center ${currentKey === centerItem.key ? 'active' : ''}`}
+          className={`cbn-nav-item cbn-center ${currentKey === centerItem.key ? 'cbn-active' : ''}`}
           data-key={centerItem.key}
           onClick={() => handleNav(centerItem)}
         >
           {centerItem.icon}
-          <div className="nav-label">{centerItem.label}</div>
+          <div className="cbn-label">{centerItem.label}</div>
         </div>
 
-        <div className="nav-indicator" />
+        <div className="cbn-indicator" />
       </div>
     </div>
   );
 };
 
-export default FormsBottomNavbar;
+export default CustomBottomNavbar;

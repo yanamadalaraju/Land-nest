@@ -196,11 +196,11 @@ function App() {
     
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', bgcolor: '#f8f9fa' }}>
 
-      <Box sx={{ display: 'flex', flex: 1, overflow: 'hidden',marginBottom:"60px" }}>
+      <Box sx={{ display: 'flex', flex: 1, overflow: 'hidden',marginBottom:"70px" }}>
         <Box
           sx={{
             width: { xs: '17%', sm: '60px' },
-            height: { xs: '86vh', sm: '82vh' },
+            height: { xs: '90vh', sm: '90vh' },
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
