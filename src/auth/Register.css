@@ -1,0 +1,225 @@
+/* body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .register-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0d0d25 0%, #000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .register-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 400px;
+    color: #f5f5f5;
+    text-align: center;
+  }
+  
+  .register-logo {
+    width: 160px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #ffd700;
+  }
+  
+  .register-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #e8d984;
+  }
+  
+  .register-error {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #ff6b6b;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .input-group {
+    text-align: left;
+  }
+  
+  .input-group label {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 5px;
+    display: block;
+    
+  }
+  
+  .input-group input {
+    width: 90%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 14px;
+    transition: border 0.3s ease;
+  }
+  
+  .input-group input:focus {
+    outline: none;
+    border: 1px solid #ffd700;
+  }
+  
+  .register-btn {
+    padding: 12px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #e8d984, #e8d984);
+    color: #000;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .register-btn:hover {
+    background: linear-gradient(135deg, #f2d667, #f3da49);
+  }
+  
+  .register-links {
+    margin-top: 20px;
+    font-size: 13px;
+  }
+  
+  .register-links a {
+    color: #f3e38b;
+    text-decoration: none;
+  }
+  
+  .register-links a:hover {
+    text-decoration: underline;
+  }
+
+
+   */
+
+
+   .register-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0d0d25 0%, #000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .register-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 500px;
+    color: #f5f5f5;
+    text-align: center;
+  }
+  
+  .register-logo {
+    width: 160px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #ffd700;
+  }
+  
+  .register-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #f7e896;
+  }
+  
+  .register-error {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #ff6b6b;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .input-group {
+    text-align: left;
+  }
+  
+  .input-group label {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 14px;
+  }
+  
+  .input-group input:focus {
+    outline: none;
+    border: 1px solid #ffd700;
+  }
+  
+  .register-btn {
+    padding: 12px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #e8d984, #e8d984);
+    color: #000;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .register-btn:hover {
+    background: linear-gradient(135deg, #f2d667, #f3da49);
+  }
+  
+  .register-links {
+    margin-top: 20px;
+    font-size: 13px;
+  }
+  
+  .register-links a {
+    color: #f5e486;
+    text-decoration: none;
+  }
+  
+  .register-links a:hover {
+    text-decoration: underline;
+  }
+  
