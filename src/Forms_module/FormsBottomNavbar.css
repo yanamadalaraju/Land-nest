@@ -153,7 +153,7 @@
 }
 
 .cbn-label {
-  font-size: 0.55rem;
+  font-size: 0.75rem;
   margin-top: 2px;
   color: var(--cbn-icon);
 }
@@ -179,7 +179,7 @@
   color: black;
   border-radius: 50%;
   box-shadow: 0 8px 20px var(--cbn-glow);
-  font-size: 1.4rem;
+  font-size: 2.9rem;
   width: 60px;
   height: 60px;
   display: flex;
@@ -191,7 +191,7 @@
 .cbn-center .cbn-label {
   position: absolute;
   top: 55px;
-  font-size: 0.6rem;
+  font-size: 3.0rem;
   font-weight: 500;
   color: black;
   white-space: nowrap;

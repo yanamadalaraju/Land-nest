@@ -85,7 +85,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: '#9e9e9e',
+  color: ' #9e9e9e',
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -192,6 +192,8 @@ function App() {
     }
   };
 
+  
+
   return (
     
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', bgcolor: '#f8f9fa' }}>
@@ -205,8 +207,8 @@ function App() {
             flexDirection: 'column',
             alignItems: 'center',
             overflow: 'hidden',
-            borderTopLeftRadius: '40px',
-            borderBottomRightRadius: '40px',
+            borderTopLeftRadius: '20px',
+            borderBottomRightRadius: '20px',
             // marginTop: '10px',
             marginTop: '0.5%',
     marginLeft: '0.5%',
@@ -468,11 +470,13 @@ function App() {
             position="fixed" // Fixed at top
             sx={{
               bgcolor: 'rgba(232, 217, 183, 0.95)',
+              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
               boxShadow: 'none',
               border:'1px solid black',
-              height: '50px',
+              borderRadius:'10px',
+              height: '50px', // Slightly increased height
               width: '82%',
-              ml: "65",
+              ml: '7.5%',
               zIndex: 1201,
               // marginTop: '0.5%',
               // marginRight: '0.5%',// ensure it stays above other elements
@@ -480,12 +484,12 @@ function App() {
             }}
           >
             <Toolbar sx={{ minHeight: '50px !important', px: 1 }}>
-              <Search sx={{ flex: 1, mx: 1 }}>
-                <SearchIconWrapper>
-                  <SearchIcon sx={{ fontSize: '1rem' }} />
-                </SearchIconWrapper>
-                <StyledInputBase placeholder="Search…" />
-              </Search>
+            <Search sx={{ flex: 1, mx: 1,px:1 }}>
+          <SearchIconWrapper>
+            <SearchIcon sx={{ fontSize: '1.25rem', color: '#333' }} />
+          </SearchIconWrapper>
+          <StyledInputBase placeholder="Search…" />
+        </Search>
               <IconButton size="small">
                 <FavoriteBorderIcon sx={{ fontSize: '1rem', color: ' #757575' }} />
               </IconButton>
@@ -497,6 +501,8 @@ function App() {
               </IconButton>
             </Toolbar>
           </AppBar>
+          
+
 
           {/* Add spacing to avoid content going under the AppBar */}
           <Box sx={{ mt: '60px' }}>
