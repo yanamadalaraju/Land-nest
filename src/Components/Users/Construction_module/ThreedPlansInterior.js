@@ -4,14 +4,14 @@ import {
   useMediaQuery, useTheme, BottomNavigation,
   BottomNavigationAction,   Paper
 } from '@mui/material';
-import pic1 from '../Images/2dplan.jpg';
-import pic2 from '../Images/floorplans.jpg';
-import pic3 from '../Images/layout.jpg';
-import pic4 from '../Images/spaceplanning.jpg';
-import pic5 from '../Images/measurement.jpg';
-import pic6 from '../Images/structurejpg.jpg';
-import pic7 from '../Images/elevationviews.jpg';
-import pic8 from '../Images/sections.jpg';
+import pic1 from './../../Images/3dplan.jpg';
+import pic2 from './../../Images/virtual.jpg';
+import pic3 from './../../Images/visualization.jpg';
+import pic4 from './../../Images/spaceplanings.jpg';
+import pic5 from './../../Images/lighting.jpg';
+import pic6 from './../../Images/material.jpg';
+import pic7 from './../../Images/furniture.jpg';
+import pic8 from './../../Images/final.jpg';
 import { useNavigate } from 'react-router-dom';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { Link } from 'react-router-dom';
@@ -25,17 +25,17 @@ import FormsBottomNavbar from '../Forms_module/FormsBottomNavbar';
 const data = [
   {
     id: 1,
-    title: '2D Plans',
+    title: '3D Visualization',
     image: pic1
   },
   {
     id: 2,
-    title: 'Floor Plans',
+    title: 'Virtual Walkthrough',
     image: pic2
   },
   {
     id: 3,
-    title: 'Layout Designs',
+    title: 'Interior Renderings',
     image: pic3
   },
   {
@@ -45,22 +45,22 @@ const data = [
   },
   {
     id: 5,
-    title: 'Measurement Plans',
+    title: 'Lighting Simulation',
     image: pic5
   },
   {
     id: 6,
-    title: 'Structural Drawings',
+    title: 'Material Selection',
     image: pic6
   },
   {
     id: 7,
-    title: 'Elevation Views',
+    title: 'Furniture Layout',
     image: pic7
   },
   {
     id: 8,
-    title: 'Section Drawings',
+    title: 'Final Presentation',
     image: pic8
   }
 ];
@@ -73,35 +73,35 @@ const chunkArray = (array, chunkSize) => {
   return result;
 };
 
-const TwodPlansInterior = () => {
+const ThreedPlansInterior = () => {
   const theme = useTheme();
   const navigate = useNavigate();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const rows = chunkArray(data, 2);
-    const [value, setValue] = useState('construction');
-    const handleChange = (event, newValue) => {
-      setValue(newValue);
-      // Navigate to the corresponding route
-      switch (newValue) {
-        case 'home':
-          navigate('/dashboard');
-          break;
-        case 'construction':
-          navigate('/constructions');
-          break;
-        case 'post':
-          navigate('/post');
-          break;
-        case 'services':
-          navigate('/home-service');
-          break;
-        case 'profile':
-          navigate('/work-detail');
-          break;
-        default:
-          navigate('/');
-      }
-    };
+   const [value, setValue] = useState('construction');
+      const handleChange = (event, newValue) => {
+        setValue(newValue);
+        // Navigate to the corresponding route
+        switch (newValue) {
+          case 'home':
+            navigate('/dashboard');
+            break;
+          case 'construction':
+            navigate('/constructions');
+            break;
+          case 'post':
+            navigate('/post');
+            break;
+          case 'services':
+            navigate('/home-service');
+            break;
+          case 'profile':
+            navigate('/work-detail');
+            break;
+          default:
+            navigate('/');
+        }
+      };
 
   return (
     <>
@@ -138,7 +138,7 @@ const TwodPlansInterior = () => {
           <Grid container justifyContent="space-between" alignItems="center">
             <Grid item>
               <Link to="/constructions" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <Typography variant={isMobile ? "h6" : "h5"} component="div"  sx={{ color: 'green', fontWeight: 'bold' }}>
+                <Typography variant={isMobile ? "h6" : "h5"} component="div" sx={{ color: 'green', fontWeight: 'bold' }}>
                   Constructions
                 </Typography>
               </Link>
@@ -155,7 +155,7 @@ const TwodPlansInterior = () => {
       </Box>
 
       {/* Page Title */}
-     
+   
 
       {/* Content Cards */}
       <Box sx={{ 
@@ -166,7 +166,6 @@ const TwodPlansInterior = () => {
         pb: 10,
         mt: 2, 
         backgroundColor: '#e7dbc9',
-
       }}>
 
 <Typography
@@ -178,7 +177,7 @@ const TwodPlansInterior = () => {
           fontSize: isMobile ? '1.5rem' : '2rem'
         }}
       >
-        2D Plans Interior
+        3D Plans Interior
       </Typography>
         {rows.map((row, rowIndex) => (
           <Box
@@ -217,7 +216,7 @@ const TwodPlansInterior = () => {
         ))}
       </Box>
 
-        {/* <Paper
+      {/* <Paper
             sx={{
               position: 'fixed',
               bottom: 0,
@@ -275,11 +274,10 @@ const TwodPlansInterior = () => {
               />
             </BottomNavigation>
                 </Paper> */}
-
-<FormsBottomNavbar />
-
+                      <FormsBottomNavbar />
+                
     </>
   );
 };
 
-export default TwodPlansInterior;
+export default ThreedPlansInterior;

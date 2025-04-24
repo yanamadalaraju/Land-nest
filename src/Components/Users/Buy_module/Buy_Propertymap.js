@@ -21,8 +21,8 @@ import ListIcon from '@mui/icons-material/List';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import MailIcon from '@mui/icons-material/Mail';
 
-import buildingImage from '../Images/house.jpeg';
-import buildingImage2 from '../Images/house1.jpg';
+import buildingImage from './../../Images/house.jpeg';
+import buildingImage2 from './../../Images/house1.jpg';
 import CustomSearchBar from '../Lease_module/CustomSearchBar';
 import ReUsableCard from './../Rent_module/ReUsableCard';
 import FormsBottomNavbar from '../Forms_module/FormsBottomNavbar';

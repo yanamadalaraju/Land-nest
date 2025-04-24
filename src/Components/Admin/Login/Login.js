@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Logo from '../../../Images/plot.jpeg';
+import Logo from './../../Images/plot.jpeg';
 import LogoutIcon from '@mui/icons-material/Logout';
 import {
   AppBar,

@@ -1,6 +1,6 @@
 // src/components/VendorForm.js
 import React, { useState,useRef } from 'react';
-import { VendorService } from '../Api/Apiservices'; // Adjust the import path as necessary
+import { VendorService } from './../Components/Api/Apiservices'; // Adjust the import path as necessary
 
 
 const VendorForm = () => {

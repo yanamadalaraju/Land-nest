@@ -461,26 +461,24 @@ import BuildIcon from '@mui/icons-material/Build';
 import AddIcon from '@mui/icons-material/Add';
 import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import doors from "./Images/doors-windows.jpg"
-import fabrication1 from "./Images/fabrication1.jpg"
-import paintings1 from "./Images/paintings1.jpg"
-import pic4 from "../Images/roofshuttering.webp";
 
-import soiltest1 from "../Images/soiltest.webp";
-import pic1 from "../Images/column_marking.webp";
-import pic2 from "../Images/columnfoundation.jpg";
-import pic3 from "../Images/plinth.avif";
-import pic5 from "../Images/roofbarbending.jpg";
-import pic6 from "../Images/roofconcreate.jpg";
-import pic7 from "../Images/partitionwalls.jpg";
-import pic8 from "../Images/flooring.jpg";
-import pic9 from "../Images/electricals.jpg";
-import pic10 from "../Images/plumbing.webp";
-import pic11 from "../Images/fabrication.jpg";
-import pic12 from "../Images/doors_windows.jpg";
-import pic13 from "../Images/paintings.jpg";
-import pic14 from "../Images/handover.jpg";
-import pic15 from "../Images/agreement.webp";
+import pic4 from "./../../Images/roofshuttering.webp";
+
+import soiltest1 from "./../../Images/soiltest.webp";
+import pic1 from "./../../Images/column_marking.webp";
+import pic2 from "./../../Images/columnfoundation.jpg";
+import pic3 from "./../../Images/plinth.avif";
+import pic5 from "./../../Images/roofbarbending.jpg";
+import pic6 from "./../../Images/roofconcreate.jpg";
+import pic7 from "./../../Images/partitionwalls.jpg";
+import pic8 from "./../../Images/flooring.jpg";
+import pic9 from "./../../Images/electricals.jpg";
+import pic10 from "./../../Images/plumbing.webp";
+import pic11 from "./../../Images/fabrication.jpg";
+import pic12 from "./../../Images/doors_windows.jpg";
+import pic13 from "./../../Images/paintings.jpg";
+import pic14 from "./../../Images/handover.jpg";
+import pic15 from "./../../Images/agreement.webp";
 
 import { jsPDF } from "jspdf";
 import FormsBottomNavbar from '../Forms_module/FormsBottomNavbar';

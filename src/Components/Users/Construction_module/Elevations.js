@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import {
   Box, Card, CardMedia, CardContent, Typography, IconButton, Grid,
   useMediaQuery, useTheme, BottomNavigation,
-  BottomNavigationAction,   Paper
+    BottomNavigationAction,   Paper
 } from '@mui/material';
-import pic1 from '../Images/3dplan.jpg';
-import pic2 from '../Images/virtual.jpg';
-import pic3 from '../Images/visualization.jpg';
-import pic4 from '../Images/spaceplanings.jpg';
-import pic5 from '../Images/lighting.jpg';
-import pic6 from '../Images/material.jpg';
-import pic7 from '../Images/furniture.jpg';
-import pic8 from '../Images/final.jpg';
+import pic1 from './../../Images/rear.jpg';
+import pic2 from './../../Images/front.jpg';
+import pic3 from './../../Images/sideelevation.jpg';
+import pic4 from './../../Images/3d elevation.jpg';
+import pic5 from './../../Images/modern.jpg';
+import pic6 from './../../Images/traditional.jpg';
+import pic7 from './../../Images/contemperory.jpg';
+import pic8 from './../../Images/mimalastic.jpg';
 import { useNavigate } from 'react-router-dom';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { Link } from 'react-router-dom';
@@ -25,42 +25,42 @@ import FormsBottomNavbar from '../Forms_module/FormsBottomNavbar';
 const data = [
   {
     id: 1,
-    title: '3D Visualization',
+    title: 'Front Elevation',
     image: pic1
   },
   {
     id: 2,
-    title: 'Virtual Walkthrough',
+    title: 'Rear Elevation',
     image: pic2
   },
   {
     id: 3,
-    title: 'Interior Renderings',
+    title: 'Side Elevation',
     image: pic3
   },
   {
     id: 4,
-    title: 'Space Planning',
+    title: '3D Elevation',
     image: pic4
   },
   {
     id: 5,
-    title: 'Lighting Simulation',
+    title: 'Modern Design',
     image: pic5
   },
   {
     id: 6,
-    title: 'Material Selection',
+    title: 'Traditional Design',
     image: pic6
   },
   {
     id: 7,
-    title: 'Furniture Layout',
+    title: 'Contemporary Design',
     image: pic7
   },
   {
     id: 8,
-    title: 'Final Presentation',
+    title: 'Minimalist Design',
     image: pic8
   }
 ];
@@ -73,35 +73,36 @@ const chunkArray = (array, chunkSize) => {
   return result;
 };
 
-const ThreedPlansInterior = () => {
+const Elevations = () => {
   const theme = useTheme();
   const navigate = useNavigate();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const rows = chunkArray(data, 2);
+
    const [value, setValue] = useState('construction');
-      const handleChange = (event, newValue) => {
-        setValue(newValue);
-        // Navigate to the corresponding route
-        switch (newValue) {
-          case 'home':
-            navigate('/dashboard');
-            break;
-          case 'construction':
-            navigate('/constructions');
-            break;
-          case 'post':
-            navigate('/post');
-            break;
-          case 'services':
-            navigate('/home-service');
-            break;
-          case 'profile':
-            navigate('/work-detail');
-            break;
-          default:
-            navigate('/');
-        }
-      };
+        const handleChange = (event, newValue) => {
+          setValue(newValue);
+          // Navigate to the corresponding route
+          switch (newValue) {
+            case 'home':
+              navigate('/dashboard');
+              break;
+            case 'construction':
+              navigate('/constructions');
+              break;
+            case 'post':
+              navigate('/post');
+              break;
+            case 'services':
+              navigate('/home-service');
+              break;
+            case 'profile':
+              navigate('/work-detail');
+              break;
+            default:
+              navigate('/');
+          }
+        };
 
   return (
     <>
@@ -135,27 +136,27 @@ const ThreedPlansInterior = () => {
               padding: isMobile ? 2 : 2,
           borderBottom: '1px solid rgba(0,0,0,0.08)'
         }}>
-          <Grid container justifyContent="space-between" alignItems="center">
-            <Grid item>
-              <Link to="/constructions" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <Typography variant={isMobile ? "h6" : "h5"} component="div" sx={{ color: 'green', fontWeight: 'bold' }}>
-                  Constructions
-                </Typography>
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link to="/interiors" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <Typography variant={isMobile ? "h6" : "h5"} component="div">
-                  Interiors
-                </Typography>
-              </Link>
-            </Grid>
-          </Grid>
+        <Grid container justifyContent="space-between" alignItems="center">
+                   <Grid item>
+                     <Link to="/constructions" style={{ textDecoration: 'none', color: 'inherit' }}>
+                       <Typography variant={isMobile ? "h6" : "h5"} component="div" sx={{ color: 'green', fontWeight: 'bold' }}>
+                         Constructions
+                       </Typography>
+                     </Link>
+                   </Grid>
+                   <Grid item>
+                     <Link to="/interiors" style={{ textDecoration: 'none', color: 'inherit' }}>
+                       <Typography variant={isMobile ? "h6" : "h5"} component="div">
+                         Interiors
+                       </Typography>
+                     </Link>
+                   </Grid>
+                 </Grid>
         </Box>
       </Box>
 
       {/* Page Title */}
-   
+     
 
       {/* Content Cards */}
       <Box sx={{ 
@@ -164,8 +165,9 @@ const ThreedPlansInterior = () => {
         gap: 2, 
         px: 2,
         pb: 10,
-        mt: 2, 
-        backgroundColor: '#e7dbc9',
+        mt: 2,
+        backgroundColor: '#e7dbc9'
+
       }}>
 
 <Typography
@@ -177,7 +179,7 @@ const ThreedPlansInterior = () => {
           fontSize: isMobile ? '1.5rem' : '2rem'
         }}
       >
-        3D Plans Interior
+        Elevations
       </Typography>
         {rows.map((row, rowIndex) => (
           <Box
@@ -200,7 +202,7 @@ const ThreedPlansInterior = () => {
               >
                 <CardMedia
                   component="img"
-                  height="160"
+                  height="180"
                   image={item.image}
                   alt={item.title}
                   sx={{ objectFit: 'cover' }}
@@ -280,4 +282,4 @@ const ThreedPlansInterior = () => {
   );
 };
 
-export default ThreedPlansInterior;
+export default Elevations;

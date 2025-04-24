@@ -1,4 +1,5 @@
-import { React, useState } from 'react';
+
+import React from 'react';
 import {
   Box,
   Typography,
@@ -13,12 +14,12 @@ import {
 } from '@mui/material';
 
 import { useNavigate } from 'react-router-dom';
-
+import { useState } from 'react'; // if not already
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import HomeIcon from '@mui/icons-material/Home';
-import ListIcon from '@mui/icons-material/List';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import MailIcon from '@mui/icons-material/Mail';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
 import BedIcon from '@mui/icons-material/Bed';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
@@ -33,43 +34,47 @@ import CompassCalibrationOutlinedIcon from '@mui/icons-material/CompassCalibrati
 import LayersOutlinedIcon from '@mui/icons-material/LayersOutlined';
 import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
 
-import buildingImage from '../Images/house.jpeg';
-import FormsBottomNavbar from '../Forms_module/FormsBottomNavbar';
-import CustomBottomNav from './CustomNav';
+import buildingImage from './../../Images/Leasebuilding.png';
+import CustomBottomNav from './CustomBottomNav';
 
-const Buy_description = () => {
+const Lease_description = () => {
   const navigate = useNavigate();
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(1); // Highlight current tab (1 for List view)
   const handleChange = (event, newValue) => {
     setValue(newValue);
     if (newValue === 0) navigate('/dashboard');
-    if (newValue === 1) navigate('/buy-details');
-    if (newValue === 2) navigate('/buy-saves');
+    if (newValue === 1) navigate('/lease_details');
+    if (newValue === 2) navigate('/lease_save');
     if (newValue === 3) navigate('/inboxlist');
   };
-
   return (
-    <Box sx={{ width: '100vw', minHeight: '100vh', backgroundColor: 'rgb(239, 231, 221)', pb: 10 }}>
+    <Box sx={{ width: '100vw', minHeight: '100vh', bgcolor: ' #f8f9fa', pb: 10,  backgroundColor: 'rgb(239, 231, 221)' }}>
       {/* Header with Back Button */}
       <Box
-        sx={{
-          bgcolor: 'rgb(49, 48, 49)',
-          color: 'white',
-          p: 2,
-          display: 'flex',
-          alignItems: 'center',
-        }}
+       sx={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 10, // Ensure it's above other elements
+        bgcolor: 'rgb(49, 48, 49)',
+        color: 'white',
+        p: 2,
+        display: 'flex',
+        alignItems: 'center',
+       
+      }}
       >
         <IconButton onClick={() => navigate(-1)} sx={{ color: 'white', mr: 1 }}>
-          <ArrowBackIosNewIcon />
+          <ArrowBackIosNewIcon /> 
         </IconButton>
         <Typography variant="h6" fontWeight="bold">
-          1BHK House For Buy
+          1BHK House For Lease
         </Typography>
       </Box>
 
       {/* Details Card */}
-      <Box sx={{ px: 2, mt: 3 }}>
+      <Box sx={{ px: 2, mt: 10 }}>
         <Card
           sx={{
             borderRadius: '20px',
@@ -96,7 +101,7 @@ const Buy_description = () => {
             <Grid container justifyContent="space-between" alignItems="center" sx={{ pb: 2 }}>
               <Grid item xs={8}>
                 <Typography fontWeight="bold" fontSize="18px">
-                  1BHK House For Buy in Hitec City
+                  1BHK House For Lease in Hitec City
                 </Typography>
                 <Typography variant="caption" color="text.secondary">
                   NRR Puram, Gowldoddy, Hitec City.
@@ -104,7 +109,7 @@ const Buy_description = () => {
               </Grid>
               <Grid item sx={{ textAlign: 'right' }}>
                 <Typography fontWeight="bold" fontSize="18px" color="rgb(240, 65, 30)">
-                  ₹50,00,000
+                  ₹20,000/month
                 </Typography>
                 <Typography variant="caption" color="text.secondary">
                   Price from owner
@@ -249,8 +254,11 @@ const Buy_description = () => {
 
       {/* Bottom Navigation */}
       <CustomBottomNav />
+
     </Box>
   );
 };
 
-export default Buy_description;
+export default Lease_description;
+
+

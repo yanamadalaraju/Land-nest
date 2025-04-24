@@ -25,9 +25,9 @@ import HomeIcon from '@mui/icons-material/Home';
 import ListIcon from '@mui/icons-material/List';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import MailIcon from '@mui/icons-material/Mail';
-import Img from './../Images/image-asset.jpeg';
-import img from './../Images/pexels-photo-439391.jpeg';
-import Footer from "../hemanth/Hemanth";
+import Img from './../../Images/image-asset.jpeg';
+import img from './../../Images/pexels-photo-439391.jpeg';
+import Footer from "./../../../hemanth/Hemanth";
 import { useNavigate } from 'react-router-dom';
 
 const rentalTypes = [

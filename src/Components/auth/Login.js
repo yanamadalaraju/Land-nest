@@ -340,7 +340,7 @@ import {
 } from '@mui/material';
 import { Visibility, VisibilityOff, Lock } from '@mui/icons-material';
 import { useNavigate, Link } from 'react-router-dom';
-import landNestLogo from '../../src/assets/LandNestLogo.jpg';
+import landNestLogo from './../assets/LandNestLogo.jpg';
 
 const Login = () => {
   const [email, setEmail] = useState('');

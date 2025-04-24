@@ -12,9 +12,9 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-import buildingImage from '../Images/house.jpeg';
-import buildingImage2 from '../Images/house1.jpg';
-import CustomSearchBar from '../Lease_module/CustomSearchBar';
+import buildingImage from './../../Images/house.jpeg';
+import buildingImage2 from './../../Images/house1.jpg';
+import CustomSearchBar from './../Lease_module/CustomSearchBar';
 import ReUsableCard from './ReUsableCard';
 import BottomNavbar from './BottomNavbar/BottomNavbar';
 

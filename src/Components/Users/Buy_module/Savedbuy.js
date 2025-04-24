@@ -24,8 +24,8 @@ import {
   Chat,
   Search,
 } from '@mui/icons-material';
-import Pic from './../Images/plot.jpeg';
-import picture from './../Images/images.jpeg'
+import Pic from './../../Images/plot.jpeg';
+import picture from './../../Images/images.jpeg'
 
 
 

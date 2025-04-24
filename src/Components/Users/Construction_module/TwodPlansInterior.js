@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import {
   Box, Card, CardMedia, CardContent, Typography, IconButton, Grid,
   useMediaQuery, useTheme, BottomNavigation,
-    BottomNavigationAction,   Paper
+  BottomNavigationAction,   Paper
 } from '@mui/material';
-import pic1 from '../Images/rear.jpg';
-import pic2 from '../Images/front.jpg';
-import pic3 from '../Images/sideelevation.jpg';
-import pic4 from '../Images/3d elevation.jpg';
-import pic5 from '../Images/modern.jpg';
-import pic6 from '../Images/traditional.jpg';
-import pic7 from '../Images/contemperory.jpg';
-import pic8 from '../Images/mimalastic.jpg';
+import pic1 from './../../Images/2dplan.jpg';
+import pic2 from './../../Images/floorplans.jpg';
+import pic3 from './../../Images/layout.jpg';
+import pic4 from './../../Images/spaceplanning.jpg';
+import pic5 from './../../Images/measurement.jpg';
+import pic6 from './../../Images/structurejpg.jpg';
+import pic7 from './../../Images/elevationviews.jpg';
+import pic8 from './../../Images/sections.jpg';
 import { useNavigate } from 'react-router-dom';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { Link } from 'react-router-dom';
@@ -25,42 +25,42 @@ import FormsBottomNavbar from '../Forms_module/FormsBottomNavbar';
 const data = [
   {
     id: 1,
-    title: 'Front Elevation',
+    title: '2D Plans',
     image: pic1
   },
   {
     id: 2,
-    title: 'Rear Elevation',
+    title: 'Floor Plans',
     image: pic2
   },
   {
     id: 3,
-    title: 'Side Elevation',
+    title: 'Layout Designs',
     image: pic3
   },
   {
     id: 4,
-    title: '3D Elevation',
+    title: 'Space Planning',
     image: pic4
   },
   {
     id: 5,
-    title: 'Modern Design',
+    title: 'Measurement Plans',
     image: pic5
   },
   {
     id: 6,
-    title: 'Traditional Design',
+    title: 'Structural Drawings',
     image: pic6
   },
   {
     id: 7,
-    title: 'Contemporary Design',
+    title: 'Elevation Views',
     image: pic7
   },
   {
     id: 8,
-    title: 'Minimalist Design',
+    title: 'Section Drawings',
     image: pic8
   }
 ];
@@ -73,36 +73,35 @@ const chunkArray = (array, chunkSize) => {
   return result;
 };
 
-const Elevations = () => {
+const TwodPlansInterior = () => {
   const theme = useTheme();
   const navigate = useNavigate();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const rows = chunkArray(data, 2);
-
-   const [value, setValue] = useState('construction');
-        const handleChange = (event, newValue) => {
-          setValue(newValue);
-          // Navigate to the corresponding route
-          switch (newValue) {
-            case 'home':
-              navigate('/dashboard');
-              break;
-            case 'construction':
-              navigate('/constructions');
-              break;
-            case 'post':
-              navigate('/post');
-              break;
-            case 'services':
-              navigate('/home-service');
-              break;
-            case 'profile':
-              navigate('/work-detail');
-              break;
-            default:
-              navigate('/');
-          }
-        };
+    const [value, setValue] = useState('construction');
+    const handleChange = (event, newValue) => {
+      setValue(newValue);
+      // Navigate to the corresponding route
+      switch (newValue) {
+        case 'home':
+          navigate('/dashboard');
+          break;
+        case 'construction':
+          navigate('/constructions');
+          break;
+        case 'post':
+          navigate('/post');
+          break;
+        case 'services':
+          navigate('/home-service');
+          break;
+        case 'profile':
+          navigate('/work-detail');
+          break;
+        default:
+          navigate('/');
+      }
+    };
 
   return (
     <>
@@ -136,22 +135,22 @@ const Elevations = () => {
               padding: isMobile ? 2 : 2,
           borderBottom: '1px solid rgba(0,0,0,0.08)'
         }}>
-        <Grid container justifyContent="space-between" alignItems="center">
-                   <Grid item>
-                     <Link to="/constructions" style={{ textDecoration: 'none', color: 'inherit' }}>
-                       <Typography variant={isMobile ? "h6" : "h5"} component="div" sx={{ color: 'green', fontWeight: 'bold' }}>
-                         Constructions
-                       </Typography>
-                     </Link>
-                   </Grid>
-                   <Grid item>
-                     <Link to="/interiors" style={{ textDecoration: 'none', color: 'inherit' }}>
-                       <Typography variant={isMobile ? "h6" : "h5"} component="div">
-                         Interiors
-                       </Typography>
-                     </Link>
-                   </Grid>
-                 </Grid>
+          <Grid container justifyContent="space-between" alignItems="center">
+            <Grid item>
+              <Link to="/constructions" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Typography variant={isMobile ? "h6" : "h5"} component="div"  sx={{ color: 'green', fontWeight: 'bold' }}>
+                  Constructions
+                </Typography>
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link to="/interiors" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Typography variant={isMobile ? "h6" : "h5"} component="div">
+                  Interiors
+                </Typography>
+              </Link>
+            </Grid>
+          </Grid>
         </Box>
       </Box>
 
@@ -165,8 +164,8 @@ const Elevations = () => {
         gap: 2, 
         px: 2,
         pb: 10,
-        mt: 2,
-        backgroundColor: '#e7dbc9'
+        mt: 2, 
+        backgroundColor: '#e7dbc9',
 
       }}>
 
@@ -179,7 +178,7 @@ const Elevations = () => {
           fontSize: isMobile ? '1.5rem' : '2rem'
         }}
       >
-        Elevations
+        2D Plans Interior
       </Typography>
         {rows.map((row, rowIndex) => (
           <Box
@@ -202,7 +201,7 @@ const Elevations = () => {
               >
                 <CardMedia
                   component="img"
-                  height="180"
+                  height="160"
                   image={item.image}
                   alt={item.title}
                   sx={{ objectFit: 'cover' }}
@@ -218,7 +217,7 @@ const Elevations = () => {
         ))}
       </Box>
 
-      {/* <Paper
+        {/* <Paper
             sx={{
               position: 'fixed',
               bottom: 0,
@@ -276,10 +275,11 @@ const Elevations = () => {
               />
             </BottomNavigation>
                 </Paper> */}
-                      <FormsBottomNavbar />
-                
+
+<FormsBottomNavbar />
+
     </>
   );
 };
 
-export default Elevations;
+export default TwodPlansInterior;

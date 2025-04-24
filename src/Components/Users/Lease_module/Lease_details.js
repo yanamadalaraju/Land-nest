@@ -189,8 +189,8 @@ import {
   Favorite as FavoriteIcon,
   Mail as MailIcon
 } from '@mui/icons-material';
-import buildingImage from '../Images/duplex-house.webp';
-import buildingImage2 from '../Images/Leasebuilding.png';
+import buildingImage from './../../Images/duplex-house.webp';
+import buildingImage2 from './../../Images/Leasebuilding.png';
 import CustomSearchBar from './CustomSearchBar';
 import CustomBottomNav from './CustomBottomNav';
 

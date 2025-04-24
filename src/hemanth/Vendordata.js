@@ -1,6 +1,6 @@
 // src/components/VendorList.js
 import React, { useState, useEffect } from 'react';
-import { VendorService } from '../Api/Apiservices'; // Adjust the import path as necessary
+import { VendorService } from './../Components/Api/Apiservices'; // Adjust the import path as necessary
 const VendorList = () => {
     const [vendors, setVendors] = useState([]);
     const [loading, setLoading] = useState(true);

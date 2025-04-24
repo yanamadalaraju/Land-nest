@@ -163,7 +163,7 @@ import {
 } from '@mui/material';
 import { Visibility, VisibilityOff, Lock } from '@mui/icons-material';
 import { useNavigate, Link } from 'react-router-dom';
-import landNestLogo from '../../src/assets/LandNestLogo.jpg'; // Update if the path differs
+import landNestLogo from './../assets/LandNestLogo.jpg'; // Update if the path differs
 
 const Register = () => {
   const [name, setName] = useState('');

@@ -1,56 +1,56 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import Dashboard from './Construction_module/Dashboard';
-import Details_Page from './Rent_module/PropertyList/Details_Page';
-import Vendor_Registration from './Forms_module/Vendor_Registration';
-import Property_Map from './Buy_module/Property_Map';
-import Saved_Buy from './Buy_module/Savedbuy';
-import Constructions from './Construction_module/Constructions'
-import Interiors from './Construction_module/Interiors-Our-Services'
-import ExploreConstructionResources from './Construction_module/ExploreConstructionResources'
-import PostYourBestDeal from './Forms_module/Form-PostYourBestDeal';
-import LeaseForm from './Forms_module/Form-Lease';
-import SellYourProperty from './Forms_module/Form-SellYourProperty';
-import Lease_map from './Lease_module/Lease_map';
-import Lease_detail from './Lease_module/Lease_details';
+import Dashboard from './Components/Users/Construction_module/Dashboard';
+import Details_Page from './Components/Users/Rent_module/PropertyList/Details_Page';
+import Vendor_Registration from './Components/Users/Forms_module/Vendor_Registration';
+import Property_Map from './Components/Users/Buy_module/Property_Map';
+import Saved_Buy from './Components/Users/Buy_module/Savedbuy';
+import Constructions from './Components/Users/Construction_module/Constructions'
+import Interiors from './Components/Users/Construction_module/Interiors-Our-Services'
+import ExploreConstructionResources from './Components/Users/Construction_module/ExploreConstructionResources'
+import PostYourBestDeal from './Components/Users/Forms_module/Form-PostYourBestDeal';
+import LeaseForm from './Components/Users/Forms_module/Form-Lease';
+import SellYourProperty from './Components/Users/Forms_module/Form-SellYourProperty';
+import Lease_map from './Components/Users/Lease_module/Lease_map';
+import Lease_detail from './Components/Users/Lease_module/Lease_details';
 
 
-import RentForm from './Forms_module/Rent_form';
-import InteriorConsultationForm from './Construction_module/Get_started';
+import RentForm from './Components/Users/Forms_module/Rent_form';
+import InteriorConsultationForm from './Components/Users/Construction_module/Get_started';
 import Footer from './hemanth/Hemanth';
 import Vendorsample from './hemanth/VendorForm';
 import Vendorsampledata from './hemanth/Vendordata';
-import TwodPlansInterior from './Construction_module/TwodPlansInterior';
-import ThreedPlansInterior from './Construction_module/ThreedPlansInterior';
-import Elevations from './Construction_module/Elevations';
-import Packages from './Construction_module/Packages'
-import HowItWorks from './Construction_module/HowItWorks'
-import Lease_discription from './Lease_module/Lease_description';
+import TwodPlansInterior from './Components/Users/Construction_module/TwodPlansInterior';
+import ThreedPlansInterior from './Components/Users/Construction_module/ThreedPlansInterior';
+import Elevations from './Components/Users/Construction_module/Elevations';
+import Packages from './Components/Users/Construction_module/Packages'
+import HowItWorks from './Components/Users/Construction_module/HowItWorks'
+import Lease_discription from './Components/Users/Lease_module/Lease_description';
 
-import Rent_Property_Map from './Rent_module/Rent_Propertymap';
-
-
-import Rent_description from './Rent_module/Discription/Rent_description';
-import Forms from './Forms_module/Forms';
-import LeaseSave from './Lease_module/LeaseSave';
-import RentSaves from './Rent_module/Rent_Saves';
-import Login from './auth/Login';
-import Register from './auth/Register';
-import HomeService from "./Worker_module/HomeService";
-import WorkerDetails from "./Worker_module/WorkerDetails";
-import InboxList from "./Worker_module/InboxList";
-import WorkerDetail from "./Worker_module/WorkerDetail";
+import Rent_Property_Map from './Components/Users/Rent_module/Rent_Propertymap';
 
 
+import Rent_description from './Components/Users/Rent_module/Discription/Rent_description';
+import Forms from './Components/Users/Forms_module/Forms';
+import LeaseSave from './Components/Users/Lease_module/LeaseSave';
+import RentSaves from './Components/Users/Rent_module/Rent_Saves';
+import Login from './Components/auth/Login';
+import Register from './Components/auth/Register';
+import HomeService from "./Components/Users/Worker_module/HomeService";
+import WorkerDetails from "./Components/Users/Worker_module/WorkerDetails";
+import InboxList from "./Components/Users/Worker_module/InboxList";
+import WorkerDetail from "./Components/Users/Worker_module/WorkerDetail";
 
 
-import Buy_Property_Map from './Buy_module/Buy_Propertymap';
-import Buy_description from './Buy_module/Buy_description';
-import Buy_Details_Page from './Buy_module/Details_Page';
-import BuySaves from './Buy_module/Buy_Saves';
-import Buy_Postdeal from './Buy_module/Buy_Postdeal';
-import Buy_Posttable from './Buy_module/Buy_Posttable'
+
+
+import Buy_Property_Map from './Components/Users/Buy_module/Buy_Propertymap';
+import Buy_description from './Components/Users/Buy_module/Buy_description';
+import Buy_Details_Page from './Components/Users/Buy_module/Details_Page';
+import BuySaves from './Components/Users/Buy_module/Buy_Saves';
+import Buy_Postdeal from './Components/Users/Buy_module/Buy_Postdeal';
+import Buy_Posttable from './Components/Users/Buy_module/Buy_Posttable'
 
 
 
@@ -64,8 +64,8 @@ import AdminExploresConstructions from './Components/Admin/ExploresConstruction/
 import AdminElevation from './Components/Admin/Elevations/Elevations';
 import AdminCustomers from './Components/Admin/Customers/Customers';
 import AdminBestDeals from './Components/Admin/BestDeals/BestDeals';
-import FormsBottomNavbar from './Forms_module/FormsBottomNavbar';
-import SampleBottomNavbar from './Lease_module/SampleButtomNavbar';
+import FormsBottomNavbar from './Components/Users/Forms_module/FormsBottomNavbar';
+import SampleBottomNavbar from './Components/Users/Lease_module/SampleButtomNavbar';
 
 
 function App() {

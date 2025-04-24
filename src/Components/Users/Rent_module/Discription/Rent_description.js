@@ -29,7 +29,7 @@ import CompassCalibrationOutlinedIcon from '@mui/icons-material/CompassCalibrati
 import LayersOutlinedIcon from '@mui/icons-material/LayersOutlined';
 import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
 
-import buildingImage from '../../Images/house.jpeg';
+import buildingImage from './../../../Images/house.jpeg';
 import BottomNavbar from '../BottomNavbar/BottomNavbar';
 
 const Rent_description = () => {

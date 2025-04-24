@@ -65,7 +65,7 @@
 import React from 'react';
 import { Box, IconButton } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import image from '../Images/logo.jpg'; // Your uploaded Land Nest logo
+ // Your uploaded Land Nest logo
 
 const SearchBar = ({ onBackClick }) => {
   return (
