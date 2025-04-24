@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AiOutlineMessage } from 'react-icons/ai'; 
 import {
   AppBar,
   Toolbar,
@@ -466,7 +467,7 @@ function App() {
 
 
         <Box flex={1} p={1} sx={{ overflow: 'auto' }}>
-          <AppBar
+          {/* <AppBar
             position="fixed" // Fixed at top
             sx={{
               bgcolor: 'rgba(232, 217, 183, 0.95)',
@@ -500,141 +501,202 @@ function App() {
                 <RiMessengerLine  sx={{ fontSize: '1rem', color: '#757575' }} />
               </IconButton>
             </Toolbar>
-          </AppBar>
+          </AppBar> */}
+          <AppBar
+              position="fixed"
+              sx={{
+                bgcolor: "rgba(232, 217, 183, 0.95)",
+                boxShadow: "none",
+                border: "1px solid black",
+                height: "50px",
+                borderRadius:'10px',
+                width: "82%",
+                ml: "65",
+                zIndex: 1201,
+              }}
+            >
+              <Toolbar sx={{ minHeight: "50px !important", px: 1 }}>
+                <Search
+                  sx={{
+                    flex: 1,
+                    mx: 1,
+                    border: "1px solid black",
+                    borderRadius: "25px",
+                    display: "flex",
+                    alignItems: "center",
+                    px: 1,
+                  }}
+                >
+                  <SearchIconWrapper>
+                    <SearchIcon sx={{ fontSize: "1rem", color: "black" }} />
+                  </SearchIconWrapper>
+                  <StyledInputBase
+                    placeholder="Search…"
+                    sx={{ color: "black" }}
+                  />
+                </Search>
+
+                {[
+                  <FavoriteBorderIcon />,
+                  <FaRegBell />,
+                  <AiOutlineMessage onClick={() => navigate('/inboxlist')} />,
+                ].map((Icon, index) => (
+                  <IconButton
+                    key={index}
+                    size="small"
+                    sx={{
+                      border: "1px solid black",
+                      borderRadius: "8px",
+                      p: "4px",
+                      mx: 0.5,
+                      backgroundColor: "transparent",
+                    }}
+                  >
+                    {React.cloneElement(Icon, {
+                      sx: { fontSize: "1rem", color: "black" },
+                    })}
+                  </IconButton>
+                ))}
+              </Toolbar>
+      </AppBar>
           
 
 
           {/* Add spacing to avoid content going under the AppBar */}
           <Box sx={{ mt: '60px' }}>
-            <Box
-              mb={2}
-              backgroundColor="#e7dbc9"
-              borderRadius="10px"
-              sx={{ display: { xs: 'block', sm: 'none' } }}
-            >
-              <Typography variant="h6" align="center" mb={1}>
-                Looking For
-              </Typography>
+  <Box
+    mb={2}
+    backgroundColor="#e7dbc9"
+    borderRadius="10px"
+    sx={{
+      display: { xs: 'block', sm: 'none' },
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)'  // Add box shadow here
+    }}
+  >
+    <Typography variant="h6" align="center" mb={1}>
+      Looking For
+    </Typography>
 
-              <Card
+    <Card
+      sx={{
+        backgroundColor: '#e7dbc9',
+        borderRadius: '10px',
+        padding: '5px',
+        boxShadow: 'none'
+      }}
+    >
+      <Grid container spacing={2}>
+        {/* First Row: 2 Cards */}
+        {cards.slice(0, 2).map((card, index) => (
+          <Grid item xs={6} key={index} display="flex" justifyContent="center">
+            <Card
+              onClick={() => card.path && navigate(card.path)}
+              sx={{
+                height: '100px',
+                width: '127px',
+                borderRadius: '12px',
+                boxShadow:
+                  '0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
+                background: card.bgImage,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                color: 'white',
+                display: 'flex',
+                cursor: 'pointer',
+                position: 'relative',
+                '&:hover': {
+                  transform: 'scale(1.02)',
+                  transition: 'transform 0.3s ease'
+                }
+              }}
+            >
+              <CardContent
                 sx={{
-                  backgroundColor: '#e7dbc9',
-                  borderRadius: '10px',
-                  padding: '5px',
-                  boxShadow: 'none'
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  width: '100%',
+                  p: 1
                 }}
               >
-                <Grid container spacing={2}>
-                  {/* First Row: 2 Cards */}
-                  {cards.slice(0, 2).map((card, index) => (
-                    <Grid item xs={6} key={index} display="flex" justifyContent="center">
-                      <Card
-                        onClick={() => card.path && navigate(card.path)}
-                        sx={{
-                          height: '100px',
-                          width: '127px',
-                          borderRadius: '12px',
-                          boxShadow:
-                            '0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
-                          background: card.bgImage,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                          color: 'white',
-                          display: 'flex',
-                          cursor: 'pointer',
-                          position: 'relative',
-                          '&:hover': {
-                            transform: 'scale(1.02)',
-                            transition: 'transform 0.3s ease'
-                          }
-                        }}
-                      >
-                        <CardContent
-                          sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'space-between',
-                            width: '100%',
-                            p: 1
-                          }}
-                        >
-                          <Box sx={{ textAlign: 'left' }}>
-                            {/* {card.icon} */}
-                            <Typography variant="h6" component="div" mt={6}>
-                              {card.title}
-                            </Typography>
-                          </Box>
-                          <IconButton
-                            sx={{
-                              position: 'absolute',
-                              right: 8,
-                              bottom: 8,
-                              color: 'white'
-                            }}
-                          >
-                            <ArrowIcon />
-                          </IconButton>
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                  ))}
-                  
-                  {/* Second Row: Centered Third Card */}
-                  <Grid item xs={12} display="flex" justifyContent="center">
-                    <Link to="/lease_map" style={{ textDecoration: 'none' }}>
-                      <Card
-                        sx={{
-                          height: '100px',
-                          width: '127px',
-                          borderRadius: '12px',
-                          boxShadow:
-                            '0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
-                          background: cards[2].bgImage,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                          color: 'white',
-                          display: 'flex',
-                          cursor: 'pointer',
-                          position: 'relative',
-                          '&:hover': {
-                            transform: 'scale(1.02)',
-                            transition: 'transform 0.3s ease'
-                          }
-                        }}
-                      >
-                        <CardContent
-                          sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'space-between',
-                            width: '100%',
-                            p: 1
-                          }}
-                        >
-                          <Box sx={{ textAlign: 'left' }}>
-                            {/* {cards[2].icon} */}
-                            <Typography variant="h6" component="div" mt={6}>
-                              {cards[2].title}
-                            </Typography>
-                          </Box>
-                          <IconButton
-                            sx={{
-                              position: 'absolute',
-                              right: 8,
-                              bottom: 8,
-                              color: 'white'
-                            }}
-                          >
-                            <ArrowIcon />
-                          </IconButton>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  </Grid>
-                </Grid>
-              </Card>
-            </Box>
-          </Box>
+                <Box sx={{ textAlign: 'left' }}>
+                  {/* {card.icon} */}
+                  <Typography variant="h6" component="div" mt={6}>
+                    {card.title}
+                  </Typography>
+                </Box>
+                <IconButton
+                  sx={{
+                    position: 'absolute',
+                    right: 8,
+                    bottom: 8,
+                    color: 'white'
+                  }}
+                >
+                  <ArrowIcon />
+                </IconButton>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+        
+        {/* Second Row: Centered Third Card */}
+        <Grid item xs={12} display="flex" justifyContent="center">
+          <Link to="/lease_map" style={{ textDecoration: 'none' }}>
+            <Card
+              sx={{
+                height: '100px',
+                width: '127px',
+                borderRadius: '12px',
+                boxShadow:
+                  '0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
+                background: cards[2].bgImage,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                color: 'white',
+                display: 'flex',
+                cursor: 'pointer',
+                position: 'relative',
+                '&:hover': {
+                  transform: 'scale(1.02)',
+                  transition: 'transform 0.3s ease'
+                }
+              }}
+            >
+              <CardContent
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  width: '100%',
+                  p: 1
+                }}
+              >
+                <Box sx={{ textAlign: 'left' }}>
+                  {/* {cards[2].icon} */}
+                  <Typography variant="h6" component="div" mt={6}>
+                    {cards[2].title}
+                  </Typography>
+                </Box>
+                <IconButton
+                  sx={{
+                    position: 'absolute',
+                    right: 8,
+                    bottom: 8,
+                    color: 'white'
+                  }}
+                >
+                  <ArrowIcon />
+                </IconButton>
+              </CardContent>
+            </Card>
+          </Link>
+        </Grid>
+      </Grid>
+    </Card>
+  </Box>
+</Box>
+
 
           {/* //Contruction cards */}
           <Box mb={2}>
