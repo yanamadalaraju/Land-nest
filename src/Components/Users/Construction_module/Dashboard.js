@@ -201,31 +201,29 @@ function App() {
 
       <Box sx={{ display: 'flex', flex: 1, overflow: 'hidden',marginBottom:"70px" }}>
         <Box
-          sx={{
-            width: { xs: '17%', sm: '60px' },
-            height: { xs: '88vh', sm: '88vh' },
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            overflow: 'hidden',
-            borderTopLeftRadius: '20px',
-            borderBottomRightRadius: '20px',
-            // marginTop: '10px',
-            marginTop: '0.5%',
-    marginLeft: '0.5%',
-
-            boxShadow: `
-      0 10px 30px -5px rgba(0,0,0,0.3),
-      inset 0 -3px 10px rgba(255,255,255,0.05)
-    `,
-            background: 'linear-gradient(145deg, #1e1e1e, #2a2a2a)',
-            transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-            '&:hover': {
-              transform: { sm: 'translateY(-4px)' }, // disable hover lift on small devices
-              boxShadow: '0 15px 35px -5px rgba(0,0,0,0.4)',
-            },
-            position: 'relative'
-          }}
+         sx={{
+          width: { xs: '14%', sm: '64px' },
+          height: '88vh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          overflow: 'hidden',
+          borderTopLeftRadius: '20px',
+          borderBottomRightRadius: '20px',
+          marginTop: '16px',
+          marginLeft: '16px',
+          boxShadow: `
+            0 10px 30px -5px rgba(0,0,0,0.3),
+            inset 0 -3px 10px rgba(255,255,255,0.05)
+          `,
+          background: 'linear-gradient(145deg, #1e1e1e, #2a2a2a)',
+          transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+          '&:hover': {
+            transform: { sm: 'translateY(-4px)' },
+            boxShadow: '0 15px 35px -5px rgba(0,0,0,0.4)',
+          },
+          position: 'relative'
+        }}
         >
           {/* Premium Profile Section */}
           <Box
@@ -308,7 +306,7 @@ function App() {
                 sx={{
                   fontSize: { xs: '0.7rem', sm: '0.8rem' },
                   color: '#5a4d3a',
-                  fontWeight: 700,
+                  fontWeight: 800,
                   fontFamily: 'Inter, Roboto, Helvetica, sans-serif',
                   letterSpacing: '1.2px',
                   textTransform: 'uppercase',
@@ -467,42 +465,45 @@ function App() {
 
 
         <Box flex={1} p={1} sx={{ overflow: 'auto' }}>
+        <AppBar
+  position="fixed"
+  sx={{
+    bgcolor: 'rgba(232, 217, 183, 0.95)',
+    boxShadow: 'none',
+    border: '1px solid black',
+    borderRadius: '10px',
+    height: '42px', // Reduced height
+    width: '80%',
+    ml: '7.3%',
+    marginRight:'3px',
+    zIndex: 1201,
+    marginTop:'13px',
+  }}
+>
+  <Toolbar sx={{ minHeight: '42px !important', px: 0.5 }}>
+    <Search sx={{ flex: 1, mx: 0.5, px: 0.5 }}>
+      <SearchIconWrapper>
+        <SearchIcon sx={{ fontSize: '1rem', color: '#333' }} />
+      </SearchIconWrapper>
+      <StyledInputBase
+        placeholder="Search…"
+        sx={{ fontSize: '0.75rem' }} // smaller input text
+      />
+    </Search>
+
+    <IconButton size="small" sx={{ p: 0.5 }}>
+      <FavoriteBorderIcon sx={{ fontSize: '0.875rem', color: '#757575' }} />
+    </IconButton>
+    <IconButton size="small" sx={{ p: 0.5 }}>
+      <FaRegBell style={{ fontSize: '0.875rem', color: '#757575' }} />
+    </IconButton>
+    <IconButton size="small" sx={{ p: 0.5 }}>
+      <RiMessengerLine style={{ fontSize: '0.875rem', color: '#757575' }} />
+    </IconButton>
+  </Toolbar>
+</AppBar>
+
           {/* <AppBar
-            position="fixed" // Fixed at top
-            sx={{
-              bgcolor: 'rgba(232, 217, 183, 0.95)',
-              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
-              boxShadow: 'none',
-              border:'1px solid black',
-              borderRadius:'10px',
-              height: '50px', // Slightly increased height
-              width: '82%',
-              ml: '7.5%',
-              zIndex: 1201,
-              // marginTop: '0.5%',
-              // marginRight: '0.5%',// ensure it stays above other elements
-              
-            }}
-          >
-            <Toolbar sx={{ minHeight: '50px !important', px: 1 }}>
-            <Search sx={{ flex: 1, mx: 1,px:1 }}>
-          <SearchIconWrapper>
-            <SearchIcon sx={{ fontSize: '1.25rem', color: '#333' }} />
-          </SearchIconWrapper>
-          <StyledInputBase placeholder="Search…" />
-        </Search>
-              <IconButton size="small">
-                <FavoriteBorderIcon sx={{ fontSize: '1rem', color: ' #757575' }} />
-              </IconButton>
-              <IconButton size="small">
-                <FaRegBell  sx={{ fontSize: '1rem', color: '#757575' }} />
-              </IconButton>
-              <IconButton size="small">
-                <RiMessengerLine  sx={{ fontSize: '1rem', color: '#757575' }} />
-              </IconButton>
-            </Toolbar>
-          </AppBar> */}
-          <AppBar
               position="fixed"
               sx={{
                 bgcolor: "rgba(232, 217, 183, 0.95)",
@@ -558,360 +559,375 @@ function App() {
                   </IconButton>
                 ))}
               </Toolbar>
-      </AppBar>
+      </AppBar> */}
           
 
 
           {/* Add spacing to avoid content going under the AppBar */}
           <Box sx={{ mt: '60px' }}>
-  <Box
-    mb={2}
-    backgroundColor="#e7dbc9"
-    borderRadius="10px"
+          <Box
+  mb={2}
+  backgroundColor="#e7dbc9"
+  borderRadius="10px"
+  sx={{
+    display: { xs: 'block', sm: 'none' },
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)'
+  }}
+>
+  <Typography variant="h6" align="center" mb={1}>
+    Looking For
+  </Typography>
+
+  <Card
     sx={{
-      display: { xs: 'block', sm: 'none' },
-      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)'  // Add box shadow here
+      backgroundColor: '#e7dbc9',
+      borderRadius: '10px',
+      padding: '5px',
+      boxShadow: 'none'
     }}
   >
-    <Typography variant="h6" align="center" mb={1}>
-      Looking For
-    </Typography>
-
-    <Card
-      sx={{
-        backgroundColor: '#e7dbc9',
-        borderRadius: '10px',
-        padding: '5px',
-        boxShadow: 'none'
-      }}
-    >
-      <Grid container spacing={2}>
-        {/* First Row: 2 Cards */}
-        {cards.slice(0, 2).map((card, index) => (
-          <Grid item xs={6} key={index} display="flex" justifyContent="center">
-            <Card
-              onClick={() => card.path && navigate(card.path)}
+    <Grid container spacing={2}>
+      {/* First Row: 2 Cards */}
+      {cards.slice(0, 2).map((card, index) => (
+        <Grid item xs={6} key={index} display="flex" justifyContent="center">
+          <Card
+            onClick={() => card.path && navigate(card.path)}
+            sx={{
+              height: '86px',
+              width: '125px',
+              borderRadius: '10px',
+              boxShadow:
+                '0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
+              background: card.bgImage,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              color: 'white',
+              display: 'flex',
+              cursor: 'pointer',
+              position: 'relative',
+              '&:hover': {
+                transform: 'scale(1.02)',
+                transition: 'transform 0.3s ease'
+              }
+            }}
+          >
+            <CardContent
               sx={{
-                height: '100px',
-                width: '127px',
-                borderRadius: '12px',
-                boxShadow:
-                  '0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
-                background: card.bgImage,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                color: 'white',
                 display: 'flex',
-                cursor: 'pointer',
-                position: 'relative',
-                '&:hover': {
-                  transform: 'scale(1.02)',
-                  transition: 'transform 0.3s ease'
-                }
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                width: '100%',
+                p: 1
               }}
             >
-              <CardContent
+              <Typography
+                variant="subtitle2"
+                component="div"
+                mt={6} // 👈 slightly move text down
                 sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  width: '100%',
-                  p: 1
+                  fontWeight: 600,
+                  fontSize: '13px',
+                  lineHeight: 1.2,
+                  color: 'white',
+                  textShadow: '1px 1px 3px rgba(0,0,0,0.7)'
                 }}
               >
-                <Box sx={{ textAlign: 'left' }}>
-                  {/* {card.icon} */}
-                  <Typography variant="h6" component="div" mt={6}>
-                    {card.title}
-                  </Typography>
-                </Box>
-                <IconButton
-                  sx={{
-                    position: 'absolute',
-                    right: 8,
-                    bottom: 8,
-                    color: 'white'
-                  }}
-                >
-                  <ArrowIcon />
-                </IconButton>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-        
-        {/* Second Row: Centered Third Card */}
-        <Grid item xs={12} display="flex" justifyContent="center">
-          <Link to="/lease_map" style={{ textDecoration: 'none' }}>
-            <Card
-              sx={{
-                height: '100px',
-                width: '127px',
-                borderRadius: '12px',
-                boxShadow:
-                  '0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
-                background: cards[2].bgImage,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                color: 'white',
-                display: 'flex',
-                cursor: 'pointer',
-                position: 'relative',
-                '&:hover': {
-                  transform: 'scale(1.02)',
-                  transition: 'transform 0.3s ease'
-                }
-              }}
-            >
-              <CardContent
+                {card.title}
+              </Typography>
+              <IconButton
                 sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  width: '100%',
-                  p: 1
+                  position: 'absolute',
+                  right: 6,
+                  bottom: 6,
+                  width: 20,
+                  height: 20,
+                  color: 'white',
+                  backgroundColor: 'rgba(0,0,0,0.4)',
+                  borderRadius: '6px'
                 }}
               >
-                <Box sx={{ textAlign: 'left' }}>
-                  {/* {cards[2].icon} */}
-                  <Typography variant="h6" component="div" mt={6}>
-                    {cards[2].title}
-                  </Typography>
-                </Box>
-                <IconButton
-                  sx={{
-                    position: 'absolute',
-                    right: 8,
-                    bottom: 8,
-                    color: 'white'
-                  }}
-                >
-                  <ArrowIcon />
-                </IconButton>
-              </CardContent>
-            </Card>
-          </Link>
+                <ArrowIcon sx={{ fontSize: '16px' }} />
+              </IconButton>
+            </CardContent>
+          </Card>
         </Grid>
+      ))}
+
+      {/* Second Row: Centered Third Card */}
+      <Grid item xs={12} display="flex" justifyContent="center">
+        <Link to="/lease_map" style={{ textDecoration: 'none' }}>
+          <Card
+            sx={{
+              height: '86px',
+              width: '125px', // 👈 make same as above cards
+              borderRadius: '10px',
+              boxShadow:
+                '0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
+              background: cards[2].bgImage,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              color: 'white',
+              display: 'flex',
+              cursor: 'pointer',
+              position: 'relative',
+              '&:hover': {
+                transform: 'scale(1.02)',
+                transition: 'transform 0.3s ease'
+              }
+            }}
+          >
+            <CardContent
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                width: '100%',
+                p: 1
+              }}
+            >
+              <Typography
+                variant="subtitle2"
+                component="div"
+                mt={6} // 👈 move text down
+                sx={{
+                  fontWeight: 600,
+                  fontSize: '13px',
+                  lineHeight: 1.2,
+                  color: 'white',
+                  textShadow: '1px 1px 3px rgba(0,0,0,0.7)'
+                }}
+              >
+                {cards[2].title}
+              </Typography>
+              <IconButton
+                sx={{
+                  position: 'absolute',
+                  right: 6,
+                  bottom: 6,
+                  width: 20,
+                  height: 20,
+                  color: 'white',
+                  backgroundColor: 'rgba(0,0,0,0.4)',
+                  borderRadius: '6px'
+                }}
+              >
+                <ArrowIcon sx={{ fontSize: '16px' }} />
+              </IconButton>
+            </CardContent>
+          </Card>
+        </Link>
       </Grid>
-    </Card>
-  </Box>
-</Box>
+    </Grid>
+  </Card>
+          </Box>
+
+          </Box>
+
+
 
 
           {/* //Contruction cards */}
-          <Box mb={2}>
-            <Typography variant="h6" fontWeight='bold' align="center" mb={1}>
-              Constructions
-            </Typography>
-            <Card
-        onClick={() => navigate('/constructions')}
-        sx={{
-          backgroundColor: '#d8ccba',
-          borderTopLeftRadius: '24px',
-          borderBottomRightRadius: '24px',
-          overflow: 'hidden',
-          width: '100%',
-          height: 220,
-          boxShadow: '0 13px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
-          cursor: 'pointer',
-          transform: 'perspective(1000px)',
-          transition: 'transform 0.4s ease, box-shadow 0.4s ease',
-          '&:hover': {
-            transform: 'perspective(1000px) scale(1.03) rotateX(2deg)',
-            boxShadow: '0 28px 28px rgba(0, 0, 0, 0.35), 0 10px 10px rgba(0, 0, 0, 0.25)',
-          },
-        }}
-      >
-  {/* Top Image Section */}
-  <Box
-     sx={{
-      height: '70%',
-      backgroundImage: `url(${image})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      borderBottomRightRadius: '24px',
-      position: 'relative',
-      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.6)',
-      border:'1px solid black',
-      '&::after': {
-        content: '""',
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        width: '100%',
-        height: '8px',
-        
-        borderBottomRightRadius: '24px',
-        zIndex: 2,
-        
-      },
-    }}
-  />
+                      <Box mb={2}>
+              <Typography variant="h6" fontWeight="bold" align="center" mb={1}>
+                Constructions
+              </Typography>
+              <Card
+                onClick={() => navigate('/constructions')}
+                sx={{
+                  backgroundColor: '#d8ccba',
+                  borderTopLeftRadius: '24px',
+                  borderBottomRightRadius: '24px',
+                  overflow: 'hidden',
+                  width: '100%',
+                  height: 220,
+                  boxShadow: '0 13px 30px rgba(0, 0, 0, 0.4), 0 6px 10px rgba(0, 0, 0, 0.35)', // Darker shadow
+                  cursor: 'pointer',
+                  transform: 'perspective(1000px)',
+                  transition: 'transform 0.4s ease, box-shadow 0.4s ease',
+                  '&:hover': {
+                    transform: 'perspective(1000px) scale(1.03) rotateX(2deg)',
+                    boxShadow: '0 28px 40px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.4)', // Darker shadow on hover
+                  },
+                }}
+              >
+                {/* Top Image Section */}
+                <Box
+                  sx={{
+                    height: '70%',
+                    backgroundImage: `url(${image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    borderBottomRightRadius: '24px',
+                    position: 'relative',
+                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
+                    border: '1px solid black',
+                    '&::after': {
+                      content: '""',
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '8px',
+                      borderBottomRightRadius: '24px',
+                      zIndex: 2,
+                    },
+                  }}
+                />
 
-  {/* Bottom Text + Arrow Section */}
-  <CardContent
-    sx={{
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      height: '30%',
-      px: 2,
-      py: 1,
-      backgroundColor: '#d8ccba',
-    }}
-  >
-    <Typography
-      variant="body1"
-      fontWeight="600"
-      color="#333"
-      noWrap
-      sx={{ flex: 1, pr: 1 }}
-    >
-      New Building Construction
-    </Typography>
-    <IconButton sx={{ color: '#333' }}>
-      <ArrowForwardIosIcon fontSize="small" />
-    </IconButton>
-  </CardContent>
-            </Card>
-          </Box>
+                {/* Bottom Text + Arrow Section */}
+                <CardContent
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    height: '30%',
+                    px: 2,
+                    py: 1,
+                    backgroundColor: '#d8ccba',
+                  }}
+                >
+                  <Typography variant="body1" fontWeight="600" color="#333" noWrap sx={{ flex: 1, pr: 1 }}>
+                    New Building Construction
+                  </Typography>
+                  <IconButton sx={{ color: '#333' }}>
+                    <ArrowForwardIosIcon fontSize="small" />
+                  </IconButton>
+                </CardContent>
+              </Card>
+            </Box>
 
-          <Box mb={2}>
-            <Card
-    onClick={() => navigate('/interiors')}
-    sx={{
-      backgroundColor: '#d8ccba',
-      borderTopLeftRadius: '24px',
-      borderBottomRightRadius: '24px',
-      overflow: 'hidden',
-      width: '100%',
-      height: 220,
-      boxShadow: '0 13px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
-      cursor: 'pointer',
-      transform: 'perspective(1000px)',
-      transition: 'transform 0.4s ease, box-shadow 0.4s ease',
-      '&:hover': {
-        transform: 'perspective(1000px) scale(1.03) rotateX(2deg)',
-        boxShadow: '0 28px 28px rgba(0, 0, 0, 0.35), 0 10px 10px rgba(0, 0, 0, 0.25)',
-      },
-    }}
-  >
-    {/* Top Image Section */}
-    <Box
-      sx={{
-        height: '70%',
-        backgroundImage: `url(${image})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        borderBottomRightRadius: '24px',
-        position: 'relative',
-        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.6)',
-        border:'1px solid black',
-        '&::after': {
-          content: '""',
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          width: '100%',
-          height: '8px',
-          
-          borderBottomRightRadius: '24px',
-          zIndex: 2,
-          
-        },
-      }}
-    />
+            <Box mb={2}>
+              <Card
+                onClick={() => navigate('/interiors')}
+                sx={{
+                  backgroundColor: '#d8ccba',
+                  borderTopLeftRadius: '24px',
+                  borderBottomRightRadius: '24px',
+                  overflow: 'hidden',
+                  width: '100%',
+                  height: 220,
+                  boxShadow: '0 13px 30px rgba(0, 0, 0, 0.4), 0 6px 10px rgba(0, 0, 0, 0.35)', // Darker shadow
+                  cursor: 'pointer',
+                  transform: 'perspective(1000px)',
+                  transition: 'transform 0.4s ease, box-shadow 0.4s ease',
+                  '&:hover': {
+                    transform: 'perspective(1000px) scale(1.03) rotateX(2deg)',
+                    boxShadow: '0 28px 40px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.4)', // Darker shadow on hover
+                  },
+                }}
+              >
+                {/* Top Image Section */}
+                <Box
+                  sx={{
+                    height: '70%',
+                    backgroundImage: `url(${image1})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    borderBottomRightRadius: '24px',
+                    position: 'relative',
+                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
+                    border: '1px solid black',
+                    '&::after': {
+                      content: '""',
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '8px',
+                      borderBottomRightRadius: '24px',
+                      zIndex: 2,
+                    },
+                  }}
+                />
 
-    {/* Bottom text and arrow */}
-    <CardContent
-      sx={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        height: '30%',
-        px: 2,
-        py: 1,
-        backgroundColor: '#d8ccba',
-      }}
-    >
-      <Typography variant="body1" fontWeight="600" color="#333">
-        Interiors
-      </Typography>
-      <IconButton sx={{ color: '#333' }}>
-        <ArrowForwardIosIcon fontSize="small" />
-      </IconButton>
-    </CardContent>
-            </Card>
-          </Box>
-          
-          <Box mb={2}>
-          <Card
-  onClick={() => navigate('/renovations')}
-  sx={{
-    backgroundColor: '#d8ccba',
-    borderTopLeftRadius: '24px',
-    borderBottomRightRadius: '24px',
-    overflow: 'hidden',
-    width: '100%',
-    height: 220,
-    boxShadow: '0 13px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
-    cursor: 'pointer',
-    transform: 'perspective(1000px)',
-    transition: 'transform 0.4s ease, box-shadow 0.4s ease',
-    '&:hover': {
-      transform: 'perspective(1000px) scale(1.03) rotateX(2deg)',
-      boxShadow: '0 28px 28px rgba(0, 0, 0, 0.35), 0 10px 10px rgba(0, 0, 0, 0.25)',
-    },
-  }}
->
-  {/* Top Image Section */}
-  <Box
-    sx={{
-      height: '70%',
-      backgroundImage: `url(${image})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      borderBottomRightRadius: '24px',
-      position: 'relative',
-      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.6)',
-      border:'1px solid black',
-      '&::after': {
-        content: '""',
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        width: '100%',
-        height: '8px',
-        
-        borderBottomRightRadius: '24px',
-        zIndex: 2,
-        
-      },
-    }}
-  />
+                {/* Bottom Text + Arrow Section */}
+                <CardContent
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    height: '30%',
+                    px: 2,
+                    py: 1,
+                    backgroundColor: '#d8ccba',
+                  }}
+                >
+                  <Typography variant="body1" fontWeight="600" color="#333">
+                    Interiors
+                  </Typography>
+                  <IconButton sx={{ color: '#333' }}>
+                    <ArrowForwardIosIcon fontSize="small" />
+                  </IconButton>
+                </CardContent>
+              </Card>
+            </Box>
 
-  {/* Bottom text and arrow section */}
-  <CardContent
-    sx={{
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      height: '30%',
-      px: 2,
-      py: 1,
-      backgroundColor: '#d8ccba',
-    }}
-  >
-    <Typography variant="body1" fontWeight="600" color="#333">
-      Renovations
-    </Typography>
-    <IconButton sx={{ color: '#333' }}>
-      <ArrowForwardIosIcon fontSize="small" />
-    </IconButton>
-  </CardContent>
-          </Card>
+            <Box mb={2}>
+              <Card
+                onClick={() => navigate('/renovations')}
+                sx={{
+                  backgroundColor: '#d8ccba',
+                  borderTopLeftRadius: '24px',
+                  borderBottomRightRadius: '24px',
+                  overflow: 'hidden',
+                  width: '100%',
+                  height: 220,
+                  boxShadow: '0 13px 30px rgba(0, 0, 0, 0.4), 0 6px 10px rgba(0, 0, 0, 0.35)', // Darker shadow
+                  cursor: 'pointer',
+                  transform: 'perspective(1000px)',
+                  transition: 'transform 0.4s ease, box-shadow 0.4s ease',
+                  '&:hover': {
+                    transform: 'perspective(1000px) scale(1.03) rotateX(2deg)',
+                    boxShadow: '0 28px 40px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.4)', // Darker shadow on hover
+                  },
+                }}
+              >
+                {/* Top Image Section */}
+                <Box
+                  sx={{
+                    height: '70%',
+                    backgroundImage: `url(${image2})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    borderBottomRightRadius: '24px',
+                    position: 'relative',
+                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
+                    border: '1px solid black',
+                    '&::after': {
+                      content: '""',
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '8px',
+                      borderBottomRightRadius: '24px',
+                      zIndex: 2,
+                    },
+                  }}
+                />
 
-          </Box>
+                {/* Bottom Text + Arrow Section */}
+                <CardContent
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    height: '30%',
+                    px: 2,
+                    py: 1,
+                    backgroundColor: '#d8ccba',
+                  }}
+                >
+                  <Typography variant="body1" fontWeight="600" color="#333">
+                    Renovations
+                  </Typography>
+                  <IconButton sx={{ color: '#333' }}>
+                    <ArrowForwardIosIcon fontSize="small" />
+                  </IconButton>
+                </CardContent>
+              </Card>
+            </Box>
+
 
              {/* Home services */}
              <Box mb={2}>
@@ -934,13 +950,14 @@ function App() {
     borderBottomRightRadius: '24px',
     overflow: 'hidden',
     height: 150,
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
+    // boxShadow: '0 8px 30px rgba(0, 0, 0, 0.35), 0 6px 6px rgba(0, 0, 0, 0.28)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
     cursor: 'pointer',
     transform: 'perspective(1000px)',
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
     '&:hover': {
       transform: 'perspective(1000px) scale(1.03) rotateX(2deg)',
-      boxShadow: '0 12px 24px rgba(0, 0, 0, 0.35), 0 10px 10px rgba(0, 0, 0, 0.25)',
+      boxShadow: '0 16px 32px rgba(0, 0, 0, 0.45), 0 12px 12px rgba(0, 0, 0, 0.30)',
     },
   }}
 >
@@ -953,7 +970,7 @@ function App() {
       backgroundPosition: 'center',
       borderBottomRightRadius: '24px',
       position: 'relative',
-      boxShadow: '0 8px 12px rgba(0, 0, 0, 0.3)',
+      boxShadow: '0 10px 20px rgba(0, 0, 0, 0.35)',
       '&::after': {
         content: '""',
         position: 'absolute',
@@ -998,6 +1015,7 @@ function App() {
 
 
 
+
         {/* Second Card */}
         <Card
   onClick={() => navigate('/interiors')}
@@ -1007,7 +1025,7 @@ function App() {
     borderBottomRightRadius: '24px',
     overflow: 'hidden',
     height: 150,
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
     cursor: 'pointer',
     transform: 'perspective(1000px)',
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
@@ -1080,7 +1098,7 @@ function App() {
     borderBottomRightRadius: '24px',
     overflow: 'hidden',
     height: 150,
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
     cursor: 'pointer',
     transform: 'perspective(1000px)',
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
@@ -1151,7 +1169,7 @@ function App() {
     borderBottomRightRadius: '24px',
     overflow: 'hidden',
     height: 150,
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
     cursor: 'pointer',
     transform: 'perspective(1000px)',
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
@@ -1165,7 +1183,7 @@ function App() {
     sx={{
       height: '65%',
       border: '1px solid black',
-      backgroundImage: `url(${image6})`,
+      backgroundImage: `url(${image5})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       borderBottomRightRadius: '24px',
@@ -1205,7 +1223,7 @@ function App() {
         textOverflow: 'ellipsis',
       }}
     >
-      Plumbing
+      Tiles & Granite Repair works
     </Typography>
     <IconButton sx={{ color: '#333', p: 0.5 }}>
       <ArrowForwardIosIcon fontSize="small" />
@@ -1223,7 +1241,7 @@ function App() {
     borderBottomRightRadius: '24px',
     overflow: 'hidden',
     height: 150,
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
     cursor: 'pointer',
     transform: 'perspective(1000px)',
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
@@ -1294,7 +1312,7 @@ function App() {
     borderBottomRightRadius: '24px',
     overflow: 'hidden',
     height: 150,
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
     cursor: 'pointer',
     transform: 'perspective(1000px)',
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
@@ -1365,7 +1383,7 @@ function App() {
     borderBottomRightRadius: '24px',
     overflow: 'hidden',
     height: 150,
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
     cursor: 'pointer',
     transform: 'perspective(1000px)',
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
@@ -1426,7 +1444,7 @@ function App() {
     borderBottomRightRadius: '24px',
     overflow: 'hidden',
     height: 150,
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
     cursor: 'pointer',
     transform: 'perspective(1000px)',
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
@@ -1487,7 +1505,7 @@ function App() {
     borderBottomRightRadius: '24px',
     overflow: 'hidden',
     height: 150,
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
     cursor: 'pointer',
     transform: 'perspective(1000px)',
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
@@ -1548,7 +1566,7 @@ function App() {
     borderBottomRightRadius: '24px',
     overflow: 'hidden',
     height: 150,
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
     cursor: 'pointer',
     transform: 'perspective(1000px)',
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
@@ -1608,7 +1626,7 @@ function App() {
     borderBottomRightRadius: '24px',
     overflow: 'hidden',
     height: 150,
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
     cursor: 'pointer',
     transform: 'perspective(1000px)',
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
@@ -1669,7 +1687,7 @@ function App() {
     borderBottomRightRadius: '24px',
     overflow: 'hidden',
     height: 150,
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
     cursor: 'pointer',
     transform: 'perspective(1000px)',
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
@@ -1730,7 +1748,7 @@ function App() {
     borderBottomRightRadius: '24px',
     overflow: 'hidden',
     height: 150,
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
     cursor: 'pointer',
     transform: 'perspective(1000px)',
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
@@ -1791,7 +1809,7 @@ function App() {
     borderBottomRightRadius: '24px',
     overflow: 'hidden',
     height: 150,
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
     cursor: 'pointer',
     transform: 'perspective(1000px)',
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
@@ -1851,7 +1869,7 @@ function App() {
     borderBottomRightRadius: '24px',
     overflow: 'hidden',
     height: 150,
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22)',
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.7)', // Darker shadow for the image
     cursor: 'pointer',
     transform: 'perspective(1000px)',
     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
