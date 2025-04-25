@@ -210,8 +210,8 @@ function App() {
           overflow: 'hidden',
           borderTopLeftRadius: '20px',
           borderBottomRightRadius: '20px',
-          marginTop: '16px',
-          marginLeft: '16px',
+          marginTop: '0px',
+          marginLeft: '5px',
           boxShadow: `
             0 10px 30px -5px rgba(0,0,0,0.3),
             inset 0 -3px 10px rgba(255,255,255,0.05)
@@ -233,7 +233,7 @@ function App() {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              height: { xs: '60px', sm: '60px' },
+              height: { xs: '50px', sm: '50px' },
               borderTopLeftRadius: '40px',
               boxShadow: `
         inset 0 2px 4px rgba(255,255,255,0.05),
@@ -277,8 +277,8 @@ function App() {
               justifyContent: 'space-between',
               pt: 2,
               pb: 2,
-              borderTopLeftRadius: '40px',
-              borderBottomRightRadius: '40px',
+              borderTopLeftRadius: '18px',
+              borderBottomRightRadius: '18px',
               boxShadow: `
         inset 0 0 15px rgba(0,0,0,0.1),
         0 5px 10px rgba(0,0,0,0.1)
@@ -473,11 +473,11 @@ function App() {
     border: '1px solid black',
     borderRadius: '10px',
     height: '42px', // Reduced height
-    width: '80%',
+    width: '82%',
     ml: '7.3%',
     marginRight:'3px',
     zIndex: 1201,
-    marginTop:'13px',
+    marginTop:'0px',
   }}
 >
   <Toolbar sx={{ minHeight: '42px !important', px: 0.5 }}>
@@ -623,7 +623,7 @@ function App() {
               <Typography
                 variant="subtitle2"
                 component="div"
-                mt={6} // 👈 slightly move text down
+                mt={7} // 👈 slightly move text down
                 sx={{
                   fontWeight: 600,
                   fontSize: '13px',
@@ -688,7 +688,7 @@ function App() {
               <Typography
                 variant="subtitle2"
                 component="div"
-                mt={6} // 👈 move text down
+                mt={7} // 👈 move text down
                 sx={{
                   fontWeight: 600,
                   fontSize: '13px',
