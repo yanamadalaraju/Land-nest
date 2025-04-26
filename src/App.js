@@ -66,7 +66,7 @@ import AdminCustomers from './Components/Admin/Customers/Customers';
 import AdminBestDeals from './Components/Admin/BestDeals/BestDeals';
 import FormsBottomNavbar from './Components/Users/Forms_module/FormsBottomNavbar';
 import SampleBottomNavbar from './Components/Users/Lease_module/SampleButtomNavbar';
-
+import ConstructionGetStarted from './Components/Users/Construction_module/ConstructionGetStarted'
 
 function App() {
 
@@ -115,6 +115,7 @@ function App() {
         <Route path="/elevations" element={<Elevations />} />
         <Route path="/packages" element={<Packages />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/construction-get-started" element={<ConstructionGetStarted />} />
 
 
 

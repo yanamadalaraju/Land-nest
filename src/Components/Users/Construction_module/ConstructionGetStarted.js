@@ -1,86 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Box, Card, CardMedia, CardContent, Typography, IconButton, Grid,
-  useMediaQuery, useTheme, BottomNavigation,
-  BottomNavigationAction,   Paper
+  AppBar,
+  Tabs,
+  Tab,
+  Typography,
+  Box,
+  TextField,
+  Checkbox,
+  FormControlLabel,
+  Button,
+  Container,
+  Paper,
+  useMediaQuery,
+  useTheme,
+  Grid,
+  IconButton
 } from '@mui/material';
-import pic1 from '../../Images/2dplan.jpg';
-import pic2 from '../../Images/floorplans.jpg';
-import pic3 from '../../Images/layout.jpg';
-import pic4 from '../../Images/spaceplanings.jpg';
-import pic5 from '../../Images/measurement.jpg';
-import pic6 from '../../Images/structurejpg.jpg';
-import pic7 from '../../Images/elevationviews.jpg';
-import pic8 from '../../Images/sections.jpg';
 import { useNavigate } from 'react-router-dom';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+
 import { Link } from 'react-router-dom';
-import HomeIcon from '@mui/icons-material/Home';
-import BuildIcon from '@mui/icons-material/Build';
-import AddIcon from '@mui/icons-material/Add';
-import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import FormsBottomNavbar from '../../Users/Forms_module/FormsBottomNavbar';
 import logotop from '../../Images/logo.jpg'
 
-const data = [
-  {
-    id: 1,
-    title: '2D Plans',
-    image: pic1
-  },
-  {
-    id: 2,
-    title: 'Floor Plans',
-    image: pic2
-  },
-  {
-    id: 3,
-    title: 'Layout Designs',
-    image: pic3
-  },
-  {
-    id: 4,
-    title: 'Space Planning',
-    image: pic4
-  },
-  {
-    id: 5,
-    title: 'Measurement Plans',
-    image: pic5
-  },
-  {
-    id: 6,
-    title: 'Structural Drawings',
-    image: pic6
-  },
-  {
-    id: 7,
-    title: 'Elevation Views',
-    image: pic7
-  },
-  {
-    id: 8,
-    title: 'Section Drawings',
-    image: pic8
-  }
-];
 
-const chunkArray = (array, chunkSize) => {
-  const result = [];
-  for (let i = 0; i < array.length; i += chunkSize) {
-    result.push(array.slice(i, i + chunkSize));
-  }
-  return result;
-};
-
-const TwodPlansInterior = () => {
-  const theme = useTheme();
+function ConstructionConsultationForm() {
   const navigate = useNavigate();
+  const [tabValue, setTabValue] = React.useState(1); // Highlight "Interior"
+  const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const rows = chunkArray(data, 2);
-    const [value, setValue] = useState('construction');
-    
+  const [value, setValue] = useState('construction');
+   
+  const handleTabChange = (event, newValue) => {
+    setTabValue(newValue);
+    // Navigate to the selected tab
+    navigate(newValue === 0 ? '/constructions' : '/interiors');
+  };
+
   return (
     <>
       {/* Sticky Header Section */}
@@ -236,75 +192,59 @@ const TwodPlansInterior = () => {
      </Box>
      </Box>
 
-      {/* Page Title */}
-     
 
-      {/* Content Cards */}
-      <Box sx={{ 
-        display: 'flex', 
-        flexDirection: 'column', 
-        gap: 2, 
-        px: 2,
-        pb: 15,
-        mt: 2, 
-        backgroundColor: '#e7dbc9',
+      {/* Main Content */}
+      <Container maxWidth="sm" sx={{ mt: 4, mb: 12 }}>
+        <Paper elevation={3} sx={{ p: { xs: 2, sm: 4 } }}>
+          {/* Secondary Navigation */}
+        
 
-      }}>
-
-<Typography
-        variant="h5"
-        align="center"
-        fontWeight="bold"
-        sx={{
-          mt: 3,
-          fontSize: isMobile ? '1.5rem' : '2rem'
-        }}
-      >
-        2D Plans Interior
-      </Typography>
-        {rows.map((row, rowIndex) => (
-          <Box
-            key={rowIndex}
-            display="flex"
-            gap={2}
+          {/* Heading */}
+          <Typography
+            variant={isMobile ? 'h6' : 'h5'}
+            sx={{ fontWeight: 600, textAlign: 'center', mb: 3 }}
           >
-            {row.map((item) => (
-              <Card
-                key={item.id}
-                sx={{ 
-                  flex: 1,
-                  borderRadius: 2,
-                  boxShadow: 3,
-                  height:'160px',
+            Talk to an Interior Designer
+          </Typography>
+
+          {/* Form Fields */}
+          <Box component="form" noValidate autoComplete="off">
+            <TextField fullWidth label="Name" margin="normal" size="small" />
+            <TextField fullWidth label="Email ID" margin="normal" size="small" />
+            <TextField fullWidth label="Phone" margin="normal" size="small" />
+
+            <FormControlLabel
+              control={<Checkbox defaultChecked color="primary" />}
+              label="Check Updates on Whatsapp"
+              sx={{ mb: 2 }}
+            />
+
+            {/* Submit Button */}
+            <Box sx={{ textAlign: 'center' }}>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: 'red',
+                  color: '#fff',
+                  borderRadius: '20px',
+                  px: 4,
+                  py: 1,
+                  fontWeight: 'bold',
                   '&:hover': {
-                    transform: 'translateY(-4px)',
-                    transition: 'transform 0.3s ease'
-                  }
+                    backgroundColor: '#cc0000',
+                  },
                 }}
               >
-                <CardMedia
-                  component="img"
-                  height="120"
-                  image={item.image}
-                  alt={item.title}
-                  sx={{ objectFit: 'cover' }}
-                />
-                <CardContent sx={{ padding: '8px' }}>
-                  <Typography variant="subtitle1" align="center" fontWeight="bold">
-                    {item.title}
-                  </Typography>
-                </CardContent>
-              </Card>
-            ))}
+                GET FREE CONSULTATION
+              </Button>
+            </Box>
           </Box>
-        ))}
-      </Box>
-
-  
-<FormsBottomNavbar />
-
+        </Paper>
+      </Container>
+    <FormsBottomNavbar />
+                
     </>
   );
-};
+}
 
-export default TwodPlansInterior;
+export default ConstructionConsultationForm;

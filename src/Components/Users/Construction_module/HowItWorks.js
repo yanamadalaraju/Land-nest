@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import {
   Box,
@@ -17,10 +18,10 @@ import BuildIcon from '@mui/icons-material/Build';
 import AddIcon from '@mui/icons-material/Add';
 import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import FormsBottomNavbar from '../Forms_module/FormsBottomNavbar';
-
+import FormsBottomNavbar from '../../Users/Forms_module/FormsBottomNavbar';
+import logotop from '../../Images/logo.jpg'
 
 // Steps for flowchart
 const steps = [
@@ -50,31 +51,15 @@ const fadeIn = keyframes`
 const InteriorServicesEnhanced = () => {
   const theme = useTheme();
   const navigate = useNavigate();
+  const location = useLocation();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-   const [value, setValue] = useState('construction');
-        const handleChange = (event, newValue) => {
-          setValue(newValue);
-          // Navigate to the corresponding route
-          switch (newValue) {
-            case 'home':
-              navigate('/dashboard');
-              break;
-            case 'construction':
-              navigate('/constructions');
-              break;
-            case 'post':
-              navigate('/post');
-              break;
-            case 'services':
-              navigate('/home-service');
-              break;
-            case 'profile':
-              navigate('/work-detail');
-              break;
-            default:
-              navigate('/');
-          }
-        };
+  const [value, setValue] = useState('construction');
+
+  // Determine active tab based on current route
+  const isHowItWorks = location.pathname.includes('how-it-works') ||
+    location.pathname === '/interiors' && location.hash === '#how-it-works';
+  const isPortfolio = location.pathname.includes('portfolio');
+  const isServices = !isHowItWorks && !isPortfolio;
 
   return (
     <>
@@ -84,76 +69,314 @@ const InteriorServicesEnhanced = () => {
         top: 0,
         zIndex: 1200,
         bgcolor: 'background.paper',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.08)'
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
       }}>
-        {/* Back Arrow Box - Stays at the very top */}
-        <Box display="flex" alignItems="center" p={1} sx={{
-          background: 'white',
+        {/* Top Navigation Bar */}
+        <Box display="flex" alignItems="center" justifyContent="space-between" p={1} sx={{
+          background: 'black',
           borderBottom: '1px solid rgba(0,0,0,0.08)'
         }}>
+          {/* Back Arrow - Left Side */}
           <IconButton
             onClick={() => navigate(-1)}
             sx={{
-              color: '#4A00E0',
-              '&:hover': {
-                backgroundColor: 'rgba(74, 0, 224, 0.1)'
-              }
+              color: 'white',
+              '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' }
             }}
           >
             <ArrowBackIosIcon />
           </IconButton>
+
+          {/* Center Text - "landnest" */}
+          <Typography variant="h6" component="div" sx={{
+            color: 'white',
+            fontWeight: 'bold',
+            flexGrow: 1,
+            textAlign: 'left'
+          }}>
+            LANDNEST
+          </Typography>
+
+          {/* Right Side Logo */}
+          <Box sx={{
+            width: 100,
+            height: 50,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            <img
+              src={logotop}
+              alt="Landnest Logo"
+              style={{
+                maxWidth: '100%',
+                maxHeight: '100%',
+                objectFit: 'contain'
+              }}
+            />
+          </Box>
         </Box>
 
-        {/* Navigation Tabs - Stays below back arrow */}
+        {/* Construction/Interior Navigation */}
         <Box sx={{
-              bgcolor: 'rgb(212, 209, 205)',
-              padding: isMobile ? 2 : 2,
-          borderBottom: '1px solid rgba(0,0,0,0.08)',
-          marginBottom : '20px'
-
+          padding: isMobile ? 1 : 0.5,
+          display: 'flex',
+          justifyContent: 'space-between',
+          boxShadow: '0 5px 10px rgba(0,0,0,0.1)',
         }}>
-          <Grid container justifyContent="space-between" alignItems="center">
-            <Grid item>
-              <Link to="/constructions" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <Typography variant={isMobile ? "h6" : "h5"} component="div">
-                  Constructions
-                </Typography>
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link to="/interiors" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <Typography variant={isMobile ? "h6" : "h5"} component="div"  sx={{ 
-                    color: 'green',
-                    fontWeight: 'bold'
-                  }}>
-                  Interiors
-                </Typography>
-              </Link>
-            </Grid>
-          </Grid>
+          {/* Construction - Inactive */}
+          <Box
+            component={Link}
+            to="/constructions"
+            sx={{
+              flex: 1,
+              textAlign: 'center',
+              py: 2,
+              textDecoration: 'none',
+              background: `
+          linear-gradient(145deg, rgb(22, 22, 22), rgb(15, 15, 15)),
+          url('https://www.transparenttextures.com/patterns/dark-matter.png')
+        `,
+              backgroundBlendMode: 'overlay',
+              borderRight: '1px solid rgba(0,0,0,0.1)',
+              borderTopLeftRadius: '30px',
+              boxShadow: `
+          inset 0 0 15px rgba(0,0,0,0.2),
+          0 2px 5px rgba(0,0,0,0.1)
+        `,
+              transform: 'scale(0.98)',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                background: `
+            linear-gradient(145deg, rgb(35, 35, 35), rgb(25, 25, 25)),
+            url('https://www.transparenttextures.com/patterns/dark-matter.png')
+          `,
+                transform: 'scale(1)',
+                boxShadow: `
+            inset 0 0 20px rgba(0,0,0,0.3),
+            0 3px 8px rgba(0,0,0,0.2)
+          `
+              }
+            }}>
+            <Typography variant={isMobile ? "h6" : "h5"} component="div" sx={{
+              fontWeight: 700,
+              color: 'white',
+              letterSpacing: '1px',
+              textShadow: '0 1px 5px rgba(0,0,0,0.7)',
+              fontFamily: 'Inter, Roboto, Helvetica, sans-serif',
+            }}>
+              Constructions
+            </Typography>
+          </Box>
+
+          {/* Interiors - Active */}
+          <Box
+            component={Link}
+            to="/interiors"
+            sx={{
+              flex: 1,
+              textAlign: 'center',
+              py: 2,
+              background: `
+          linear-gradient(145deg, rgba(232,224,208,0.95), rgba(216,204,186,0.95)),
+          url('https://www.transparenttextures.com/patterns/cream-paper.png')
+        `,
+              backgroundBlendMode: 'overlay',
+              textDecoration: 'none',
+              borderBottomRightRadius: '30px',
+              boxShadow: `
+          inset 0 0 15px rgba(0,0,0,0.1),
+          0 2px 5px rgba(0,0,0,0.08)
+        `,
+              transform: 'scale(0.98)',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                transform: 'scale(1)',
+                boxShadow: `
+            inset 0 0 20px rgba(0,0,0,0.15),
+            0 3px 8px rgba(0,0,0,0.15)
+          `
+              }
+            }}
+          >
+            <Typography variant={isMobile ? "h6" : "h5"} component="div" sx={{
+              fontWeight: 700,
+              color: 'green',
+              letterSpacing: '1px',
+              textShadow: '0 1px 3px rgba(255,255,255,0.5)',
+              fontFamily: 'Inter, Roboto, Helvetica, sans-serif',
+            }}>
+              Interiors
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+
+      {/* Sticky Services Navigation */}
+      <Box sx={{
+        position: 'sticky',
+        top: isMobile ? 145 : 138, // Adjust based on header height
+        zIndex: 1100,
+        padding: isMobile ? 1 : 0.5,
+        display: 'flex',
+        justifyContent: 'space-between',
+        boxShadow: '0 5px 10px rgba(0,0,0,0.1)',
+        bgcolor: 'background.paper'
+      }}>
+        {/* Our Services - Left */}
+        <Box
+          component={Link}
+          to="/interiors"
+          sx={{
+            flex: 1,
+            textAlign: 'center',
+            py: 2,
+            textDecoration: 'none',
+            background: isServices ? `
+        linear-gradient(145deg, rgba(232,224,208,0.95), rgba(216,204,186,0.95)),
+        url('https://www.transparenttextures.com/patterns/cream-paper.png')
+      ` : `
+        linear-gradient(145deg, rgb(22, 22, 22), rgb(15, 15, 15)),
+        url('https://www.transparenttextures.com/patterns/dark-matter.png')
+      `,
+            backgroundBlendMode: 'overlay',
+            borderRight: '1px solid rgba(0,0,0,0.1)',
+            borderTopLeftRadius: '30px',
+            boxShadow: `
+        inset 0 0 15px rgba(0,0,0,0.2),
+        0 2px 5px rgba(0,0,0,0.1)
+      `,
+            transform: 'scale(0.98)',
+            transition: 'all 0.3s ease',
+            '&:hover': {
+              background: isServices ? `
+          linear-gradient(145deg, rgba(242,234,218,0.95), rgba(226,214,196,0.95)),
+          url('https://www.transparenttextures.com/patterns/cream-paper.png')
+        ` : `
+          linear-gradient(145deg, rgb(35, 35, 35), rgb(25, 25, 25)),
+          url('https://www.transparenttextures.com/patterns/dark-matter.png')
+        `,
+              transform: 'scale(1)',
+              boxShadow: `
+          inset 0 0 20px rgba(0,0,0,0.3),
+          0 3px 8px rgba(0,0,0,0.2)
+        `
+            }
+          }}
+        >
+          <Typography variant={isMobile ? "body1" : "h6"} component="div" sx={{
+            fontWeight: 700,
+            color: isServices ? 'green' : 'white',
+            letterSpacing: '1px',
+            textShadow: isServices ? '0 1px 3px rgba(255,255,255,0.5)' : '0 1px 5px rgba(0,0,0,0.7)',
+            fontFamily: 'Inter, Roboto, Helvetica, sans-serif',
+          }}>
+            Our Services
+          </Typography>
         </Box>
 
-        {/* Services Navigation - Stays below the main tabs */}
-        <Box sx={{ 
-          display: 'flex', 
-          justifyContent: 'space-around', 
-          p: 1, 
-          bgcolor: '#fff',
-          borderBottom: '1px solid rgba(0,0,0,0.08)'
-        }}>
-            <Link to="/interiors" style={{ textDecoration: 'none', color: 'inherit' }}>
+        {/* Portfolio - Middle */}
+        <Box
 
-          <Typography>Our Services</Typography>
-          </Link>
+          sx={{
+            flex: 1,
+            textAlign: 'center',
+            py: 2,
+            textDecoration: 'none',
+            background: isPortfolio ? `
+        linear-gradient(145deg, rgba(232,224,208,0.95), rgba(216,204,186,0.95)),
+        url('https://www.transparenttextures.com/patterns/cream-paper.png')
+      ` : `
+        linear-gradient(145deg, rgb(22, 22, 22), rgb(15, 15, 15)),
+        url('https://www.transparenttextures.com/patterns/dark-matter.png')
+      `,
+            backgroundBlendMode: 'overlay',
+            borderRight: '1px solid rgba(0,0,0,0.1)',
+            boxShadow: `
+        inset 0 0 15px rgba(0,0,0,0.2),
+        0 2px 5px rgba(0,0,0,0.1)
+      `,
+            transform: 'scale(0.98)',
+            transition: 'all 0.3s ease',
+            '&:hover': {
+              background: isPortfolio ? `
+          linear-gradient(145deg, rgba(242,234,218,0.95), rgba(226,214,196,0.95)),
+          url('https://www.transparenttextures.com/patterns/cream-paper.png')
+        ` : `
+          linear-gradient(145deg, rgb(35, 35, 35), rgb(25, 25, 25)),
+          url('https://www.transparenttextures.com/patterns/dark-matter.png')
+        `,
+              transform: 'scale(1)',
+              boxShadow: `
+          inset 0 0 20px rgba(0,0,0,0.3),
+          0 3px 8px rgba(0,0,0,0.2)
+        `
+            }
+          }}
+        >
+          <Typography variant={isMobile ? "body1" : "h6"} component="div" sx={{
+            fontWeight: 700,
+            color: isPortfolio ? 'green' : 'white',
+            letterSpacing: '1px',
+            textShadow: isPortfolio ? '0 1px 3px rgba(255,255,255,0.5)' : '0 1px 5px rgba(0,0,0,0.7)',
+            fontFamily: 'Inter, Roboto, Helvetica, sans-serif',
+          }}>
+            Portfolio
+          </Typography>
+        </Box>
 
-          <Typography>Portfolio</Typography>
-          <Typography sx={{ color: 'green', fontWeight: 'bold' }}>How it works?</Typography>
+        {/* How it works - Right */}
+        <Box
+          sx={{
+            flex: 1,
+            textAlign: 'center',
+            py: 2,
+            background: isHowItWorks ? `
+        linear-gradient(145deg, rgba(232,224,208,0.95), rgba(216,204,186,0.95)),
+        url('https://www.transparenttextures.com/patterns/cream-paper.png')
+      ` : `
+        linear-gradient(145deg, rgb(22, 22, 22), rgb(15, 15, 15)),
+        url('https://www.transparenttextures.com/patterns/dark-matter.png')
+      `,
+            backgroundBlendMode: 'overlay',
+            textDecoration: 'none',
+            borderBottomRightRadius: '30px',
+            boxShadow: `
+        inset 0 0 15px rgba(0,0,0,0.1),
+        0 2px 5px rgba(0,0,0,0.08)
+      `,
+            transform: 'scale(0.98)',
+            transition: 'all 0.3s ease',
+            '&:hover': {
+              background: isHowItWorks ? `
+          linear-gradient(145deg, rgba(242,234,218,0.95), rgba(226,214,196,0.95)),
+          url('https://www.transparenttextures.com/patterns/cream-paper.png')
+        ` : `
+          linear-gradient(145deg, rgb(35, 35, 35), rgb(25, 25, 25)),
+          url('https://www.transparenttextures.com/patterns/dark-matter.png')
+        `,
+              transform: 'scale(1)',
+              boxShadow: `
+          inset 0 0 20px rgba(0,0,0,0.15),
+          0 3px 8px rgba(0,0,0,0.15)
+        `
+            }
+          }}
+        >
+          <Typography variant={isMobile ? "body1" : "h6"} component="div" sx={{
+            fontWeight: 700,
+            color: isHowItWorks ? 'green' : 'white',
+            letterSpacing: '1px',
+            textShadow: isHowItWorks ? '0 1px 3px rgba(255,255,255,0.5)' : '0 1px 5px rgba(0,0,0,0.7)',
+            fontFamily: 'Inter, Roboto, Helvetica, sans-serif',
+          }}>
+            How it works?
+          </Typography>
         </Box>
       </Box>
 
       {/* Main Content */}
-      <Box sx={{ width: '100%', minHeight: '100vh',  backgroundColor:"#e7dbc9"
-, pb: 12 }}>
+      <Box sx={{ width: '100%', minHeight: '100vh', backgroundColor: "#e7dbc9", pb: 12 }}>
         {/* Tagline */}
         <Typography
           variant="h6"
@@ -199,7 +422,6 @@ const InteriorServicesEnhanced = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  // bgcolor: theme.palette.primary.main,
                   bgcolor: '#438b98',
                   color: '#fff',
                   borderRadius: '50%',
@@ -311,66 +533,7 @@ const InteriorServicesEnhanced = () => {
         </Box>
       </Box>
 
-      {/* <Paper
-            sx={{
-              position: 'fixed',
-              bottom: 0,
-              left: 0,
-              right: 0,
-              zIndex: 1000,
-            }}
-            elevation={3}
-          >
-            <BottomNavigation
-              value={value}
-              onChange={handleChange}
-              showLabels
-              sx={{
-                borderTop: '1px solid #e0e0e0',
-                height: '60px',
-                '& .MuiBottomNavigationAction-root': {
-                  minWidth: 'auto',
-                  padding: '6px 0',
-                  color: 'black',
-                },
-                '& .MuiBottomNavigationAction-label': {
-                  fontSize: '0.7rem',
-                },
-              }}
-            >
-              <BottomNavigationAction
-                value="home"
-                label="Home"
-                icon={<HomeIcon sx={{ fontSize: '1.3rem' }} />}
-              />
-              <BottomNavigationAction
-                value="construction"
-                label="Construction & Interiors"
-                icon={<BuildIcon sx={{ fontSize: '1.3rem' }} />}
-              />
-              <BottomNavigationAction
-                value="post"
-                label="Post"
-                icon={<AddIcon sx={{ fontSize: '1.3rem' }} />}
-                sx={{
-                  '& .MuiSvgIcon-root': { color: '#2196f3' },
-                  '& .MuiBottomNavigationAction-label': { color: '#2196f3' }
-                }}
-              />
-              <BottomNavigationAction
-                value="services"
-                label="Home Services"
-                icon={<CleaningServicesIcon sx={{ fontSize: '1.3rem' }} />}
-              />
-              <BottomNavigationAction
-                value="profile"
-                label="Profile"
-                icon={<AccountCircleIcon sx={{ fontSize: '1.3rem' }} />}
-              />
-            </BottomNavigation>
-                </Paper> */}
-                      <FormsBottomNavbar />
-                
+      <FormsBottomNavbar />
     </>
   );
 };
